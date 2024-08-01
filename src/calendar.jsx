@@ -3,6 +3,7 @@ import { Calendar, DateLocalizer, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment'; //시간관리 라이브러리
 import styles from '../src/styles/calendar.module.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import Toolbar from './Toolbar';
 
 export default function CalendarPage() {
   const localizer = momentLocalizer(moment); //현재 시간
@@ -17,6 +18,7 @@ export default function CalendarPage() {
       calendarType: 0,
     },
   ]);
+
   const CalendarData = events?.map((data) => ({
     start: new Date(data.start),
     end: new Date(data.end),
@@ -38,6 +40,9 @@ export default function CalendarPage() {
           startAccessor='start'
           endAccessor='end'
           titleAccessor='title'
+          components={{
+            toolbar: Toolbar,
+          }}
         />
       </div>
     </div>
