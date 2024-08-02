@@ -1,9 +1,7 @@
+import Login from './Login';
+import SignUp from './SignUp';
 const App = () => {
-  return (
-    <div>
-      <h1>hello world!</h1>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default App;
