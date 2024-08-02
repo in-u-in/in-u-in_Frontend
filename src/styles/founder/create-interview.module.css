@@ -1,0 +1,103 @@
+.BigTitle {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.InputContainer {
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.SubTitle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.InputBox {
+  margin: 20px;
+}
+
+.Input1 {
+  width: 500px;
+  height: 30px;
+  outline: none;
+  padding: 10px;
+}
+
+.Input2 {
+  width: 90px;
+  height: 30px;
+  outline: none;
+  padding: 10px;
+  text-align: center;
+}
+
+.Input2::placeholder {
+  text-align: right;
+}
+
+.Input3 {
+  width: 500px;
+  height: 350px;
+  margin-top: 7px;
+  text-align: left;
+}
+
+.Star {
+  color: red;
+  margin-top: 7px;
+}
+
+.Title {
+  margin-left: 6px;
+  color: rgb(98, 98, 98);
+  font-size: 15px;
+}
+
+.Title2 {
+  color: rgb(98, 98, 98);
+  font-size: 15px;
+}
+
+.CreateButton {
+  background-color: rgb(42, 113, 255);
+  border-radius: 5px;
+  color: white;
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.CreateButton:hover {
+  background-color: rgb(0, 85, 255);
+}
+
+.ErrorMessage {
+  color: red;
+  font-size: 13px;
+  margin-top: 10px;
+  margin-left: 2px;
+}
+
+.CategoryLabel {
+  color: rgb(98, 98, 98);
+  font-size: 15px;
+}
+
+.Category {
+  margin-right: 5px;
+}
+
+.Category1 {
+  margin-right: 5px;
+  margin-left: 15px;
+}
