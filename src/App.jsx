@@ -3,11 +3,9 @@ import CalendarPage from './calendar';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/calendar' element={<CalendarPage />} />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <h1>hello world!</h1>
+    </div>
   );
 };
 
