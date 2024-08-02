@@ -1,0 +1,69 @@
+.IntervieweeBoxWrap {
+    position: relative;
+    width: 280px;
+    height: 390px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.IntervieweeBoxWrap:hover {
+    background-color: #d5d5d5;
+}
+
+.FounderImg {
+    flex: 0 0 auto; 
+    width: 100%;
+    height: 280px; 
+    overflow: hidden; 
+    margin-bottom: 10px;
+}
+
+.FounderImg img {
+    width: 100%; 
+    height: 280px; 
+    object-fit: cover; 
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+}
+
+.InfoWrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left : 20px;
+}
+
+.SmallFounderImg {
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%; 
+}
+
+.SmallFounderImg img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+}
+
+.FounderName {
+    margin-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.FounderInfo {
+    margin-left: 65px;
+    margin-top : 5px;
+    max-width: 190px;
+    font-size: 14px;
+    color :#9b9b9b;
+}
+
+.BoxContainer {
+    margin-top: 10px;
+    margin-left : 3px;
+}
+
