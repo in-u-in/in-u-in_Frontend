@@ -1,6 +1,3 @@
-import "./styles/globals.css"
-
-
 const App = () => {
   return (
     <div>
