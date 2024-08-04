@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/IntervieweeBox.module.css';
-import tourism from './tourism.jpg';
+import tourism from '../../../assets/icons/tourism.svg';
 
 export default function IntervieweeBox() {
   return (
