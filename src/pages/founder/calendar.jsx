@@ -4,58 +4,14 @@ import moment from 'moment'; //시간관리 라이브러리
 import styles from '../../styles/founder/calendar.module.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Toolbar from '../../components/founder/calendar/ToolBar';
-import useModal from '../../hooks/useModal';
-import Modal from '../../components/founder/calendar/Modal';
 
 export default function CalendarPage() {
   const localizer = momentLocalizer(moment); //현재 시간
   const allViews = ['month']; //선택 가능한 캘린더 종류
-  const { isOpen, closeModal, openModal } = useModal();
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedEvent, setSelectedEvent] = useState([]);
   //조회한 스케줄 담을 state
-  const [events, setEvents] = useState([
-    {
-      id: '',
-      start: '',
-      end: '',
-      title: '',
-      start: '2024-08-01T12:00:00',
-      end: '2024-08-05T12:00:00',
-      title: 'schedule1',
-      calendarType: 0,
-    },
-    {
-      start: '2024-08-01T12:00:00',
-      end: '2024-08-05T12:00:00',
-      title: 'schedule2',
-      calendarType: 0,
-    },
-    {
-      start: '2024-08-01T12:00:00',
-      end: '2024-08-05T12:00:00',
-      title: 'schedule3',
-      calendarType: 0,
-    },
-    {
-      start: '2024-08-01T12:00:00',
-      end: '2024-08-05T12:00:00',
-      title: 'schedule4',
-      calendarType: 0,
-    },
-    {
-      start: '2024-08-01T12:00:00',
-      end: '2024-08-05T12:00:00',
-      title: 'schedule5',
-      calendarType: 0,
-    },
-    {
-      start: '2024-08-10T00:00:00',
-      end: '2024-08-10T12:00:00',
-      title: 'schedule3',
-      calendarType: 0,
-    },
-  ]);
+  const [events, setEvents] = useState([]);
   const CalendarData = events?.map((data) => ({
     start: new Date(data.start),
     end: new Date(data.end),
@@ -97,7 +53,6 @@ export default function CalendarPage() {
             }}
           />
         </div>
-        {isOpen ? <Modal /> : <></>}
       </div>
     </div>
   );
