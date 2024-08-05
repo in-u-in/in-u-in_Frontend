@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../../styles/founder/FounderBox.module.css';
-import tourism from '../../../../public/assets/icons/tourism.svg';
+import tourism from '../../../assets/icons/tourism.svg';
 
 export default function FounderBox() {
   return (
