@@ -1,5 +1,5 @@
 import React from 'react';
-import IntervieweeBox from '../../components/founder/founder-home/FounderBox';
+import IntervieweeBox from '../../components/interviewee/interviewee-home/IntervieweeBox';
 import { useState } from 'react';
 import styles from '../../styles/founder/founder-home.module.css';
 
@@ -45,8 +45,7 @@ export default function FounderHomePage() {
   return (
     <div className={styles.FounderHomeContainer}>
       <div className={styles.Title}>
-        <div>인터뷰 희망자와 인터뷰 모집자가 가장 빨리 연결되는 곳,</div>
-        <div>IN U IN</div>
+        <div>당신의 서비스를 발전시켜줄, 인터뷰 지원자를 만나보세요</div>
       </div>
       <div className={styles.FounderBox}>
         <div className={styles.SubTitle}>오늘의 추천 인터뷰이</div>
@@ -64,6 +63,8 @@ export default function FounderHomePage() {
           <IntervieweeBox />
           <IntervieweeBox />
         </div>
+      </div>
+      <div className={styles.FounderBox}>
         <h2 className={styles.SubTitle}>더 많은 인터뷰이를 확인해보세요.</h2>
         <div className={styles.IntervieweeContainer}>
           {/*wholeInterviewee.map((item) => (

@@ -64,6 +64,8 @@ export default function IntervieweeHomePage() {
           <FounderBox />
           <FounderBox />
         </div>
+      </div>
+      <div className={styles.IntervieweeBox}>
         <h2 className={styles.SubTitle}>더 많은 인터뷰들을 확인해보세요.</h2>
         <div className={styles.FounderContainer}>
           {/*wholeFounder.map((item) => (

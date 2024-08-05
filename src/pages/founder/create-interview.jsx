@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../../styles/founder/create-interview.module.css';
 import StepBar from '../../components/founder/create-interview/StepBar';
@@ -187,115 +187,155 @@ export default function CreateInterviewPage() {
     };
     */
 
-  return (
-    <div>
-      <div className={styles.BigTitle}>인터뷰 생성</div>
-      <div className={styles.InputContainer}>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>제목</div>
-            </div>
-            <input
-              className={styles.Input1}
-              type='text'
-              placeholder='제목을 입력하세요'
-              onChange={onTitleChange}
-            />
-            {titleError && (
-              <div className={styles.ErrorMessage}>{titleError}</div>
-            )}
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>아이디어 단계</div>
-            </div>
-            <div className={styles.StepBar}>
-              <StepBar steps={steps} />
-            </div>
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>인터뷰 목적</div>
-            </div>
-            <input className={styles.Input1} onChange={onPurposeChange} />
-            {purposeError && (
-              <div className={styles.ErrorMessage}>{purposeError}</div>
-            )}
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>인터뷰 유형</div>
-            </div>
-            <div className={styles.CategoryWrap}>
-              <label className={styles.CategoryLabel}>
-                <input className={styles.Category} type='checkbox' />
-                대면
-                <input className={styles.Category1} type='checkbox' />
-                화상채팅
-                <input className={styles.Category1} type='checkbox' />
-                전화
-              </label>
-            </div>
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>인터뷰 소요시간</div>
-            </div>
-            <input
-              className={styles.Input2}
-              type='text'
-              onChange={onTakenTimeChange}
-              placeholder='분'
-            />
-            {takenTimeError && (
-              <div className={styles.ErrorMessage}>{takenTimeError}</div>
-            )}
-          </div>
+  const [imageUrl, setImageUrl] = useState(null);
+  const imgRef = useRef();
 
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>기본 지급 단가</div>
+  const onChangeImage = () => {
+    const reader = new FileReader();
+    const file = imgRef.current.files[0];
+    console.log(file);
+
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImageUrl(reader.result);
+      console.log('이미지주소', reader.result);
+    };
+  };
+
+  return (
+    <div className={styles.CreateInterviewContainer}>
+      <div className={styles.BigTitle}>인터뷰 생성</div>
+      <div className={styles.CreateContainer}>
+        <div className={styles.UploadContainer}>
+          <div className={styles.UploadTextBox}>
+            <div className={styles.UploadText}>
+              인터뷰에 적절한 이미지를 업로드 해주세요.
             </div>
-            <input
-              className={styles.Input2}
-              type='text'
-              onChange={onDefaultPriceChange}
-              placeholder='원'
-            />
-            {defaultPriceError && (
-              <div className={styles.ErrorMessage}>{defaultPriceError}</div>
-            )}
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>추가시간 10분당 지급 단가</div>
+            <div className={styles.UploadText2}>
+              이미지는 .eps 또는 .jpg 형식이어야합니다.
             </div>
-            <input
-              className={styles.Input2}
-              type='text'
-              onChange={onExtraPriceChange}
-              placeholder='원'
-            />
-            {extraPriceError && (
-              <div className={styles.ErrorMessage}>{extraPriceError}</div>
-            )}
+            <div className={styles.UploadText2}>
+              동영상은 .mov 또는 .Mp4 형식이어야합니다.
+            </div>
+            <div className={styles.UploadText2}>
+              <span className={styles.BlueText}>이미지</span>나
+              <span className={styles.BlueText}> 동영상</span>에 대한 자세한
+              요구사항은 지원센터에 문의하세요
+            </div>
+            <React.Fragment>
+              <input type='file' ref={imgRef} onChange={onChangeImage}></input>
+            </React.Fragment>
           </div>
-          <div className={styles.InputBox}>
-            <div className={styles.Title2}>모집 메인글 작성</div>
-            <input className={styles.Input3} type='text' />
-          </div>
-          <div type='submit' className={styles.CreateButton}>
-            인터뷰 생성
-          </div>
-        </form>
+        </div>
+        <div className={styles.InputContainer}>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>제목</div>
+              </div>
+              <input
+                className={styles.Input1}
+                type='text'
+                placeholder='제목을 입력하세요'
+                onChange={onTitleChange}
+              />
+              {titleError && (
+                <div className={styles.ErrorMessage}>{titleError}</div>
+              )}
+            </div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>아이디어 단계</div>
+              </div>
+              <div className={styles.StepBar}>
+                <StepBar steps={steps} />
+              </div>
+            </div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>인터뷰 목적</div>
+              </div>
+              <input className={styles.Input1} onChange={onPurposeChange} />
+              {purposeError && (
+                <div className={styles.ErrorMessage}>{purposeError}</div>
+              )}
+            </div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>인터뷰 유형</div>
+              </div>
+              <div className={styles.CategoryWrap}>
+                <label className={styles.CategoryLabel}>
+                  <input className={styles.Category} type='checkbox' />
+                  대면
+                  <input className={styles.Category1} type='checkbox' />
+                  화상채팅
+                  <input className={styles.Category1} type='checkbox' />
+                  전화
+                </label>
+              </div>
+            </div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>인터뷰 소요시간</div>
+              </div>
+              <input
+                className={styles.Input2}
+                type='text'
+                onChange={onTakenTimeChange}
+                placeholder='분'
+              />
+              {takenTimeError && (
+                <div className={styles.ErrorMessage}>{takenTimeError}</div>
+              )}
+            </div>
+
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>기본 지급 단가</div>
+              </div>
+              <input
+                className={styles.Input2}
+                type='text'
+                onChange={onDefaultPriceChange}
+                placeholder='원'
+              />
+              {defaultPriceError && (
+                <div className={styles.ErrorMessage}>{defaultPriceError}</div>
+              )}
+            </div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>추가시간 10분당 지급 단가</div>
+              </div>
+              <input
+                className={styles.Input2}
+                type='text'
+                onChange={onExtraPriceChange}
+                placeholder='원'
+              />
+              {extraPriceError && (
+                <div className={styles.ErrorMessage}>{extraPriceError}</div>
+              )}
+            </div>
+            <div className={styles.InputBox}>
+              <div className={styles.Title2}>모집 메인글 작성</div>
+              <input className={styles.Input3} type='text' />
+            </div>
+            <div className={styles.ButtonContainer}>
+              <div type='submit' className={styles.CreateButton}>
+                인터뷰 생성
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

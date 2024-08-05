@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/IntervieweeBox.module.css';
+import styles from '../../../styles/interviewee/IntervieweeBox.module.css';
 import tourism from '../../../assets/icons/tourism.svg';
 
 export default function IntervieweeBox() {
