@@ -10,6 +10,7 @@
 
 .selectBox {
   height: 32px;
+  line-height: 30px;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
   color: rgba(0, 0, 0, 0.88);
@@ -19,6 +20,34 @@
   padding: 0 12px;
   cursor: pointer;
   outline: none;
+  position: relative;
+}
+
+.optionBox {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  list-style-type: none;
+  border: 1px solid #d9d9d9;
+  background-color: white;
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.option {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option:hover {
+  background-color: #1677ff;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
 }
 
 .checkBox {
@@ -60,37 +89,70 @@
   color: #1677ff;
 }
 
-/*calendar*/
-.Container {
-  display: flex;
+/*MonthHeader*/
+.monthHeaderContainer {
   width: 100%;
+  height: 18px;
+  display: flex;
+  align-items: start;
+  justify-content: right;
+  margin-bottom: 4px;
+  border-bottom: transparent;
+  padding: 0 4px;
+}
+
+/*DateCell*/
+.dateContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 116px;
+  width: 129.14px;
+  margin: 0 4px;
+}
+
+.today {
+  background-color: rgba(22, 119, 255, 0.06);
+  border-top: 2px solid #1677ff;
+}
+
+.nToday {
+  border-top: 2px solid rgba(5, 5, 5, 0.06);
+}
+
+/*DateHeader*/
+.headerContainer {
+  height: 24px;
+  width: 129.14px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 6px 8px;
+}
+
+.todayHeader {
+  color: #1677ff;
+}
+
+/*calendar*/
+.container {
+  width: 960px;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 124px 0 64px 0;
-  gap: 50px;
+  margin: 93px 0 64px 0;
+  gap: 42px;
 }
 
-.ModalContainer {
-  width: 300px;
-  height: 718px;
-  border: 1px solid lightgray;
-}
-
-.Title {
-  font-size: 38px;
+.title {
+  display: flex;
+  align-items: center;
+  height: 81px;
+  font-size: 30px;
   font-weight: 600;
 }
 
-.Calendars {
-  height: 790px;
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  gap: 10px;
-}
-
-.Calendar {
-  height: 718px;
-  height: 100%;
-  width: 960px;
+.calendarWrapper {
+  height: 655px;
+  width: 100%;
 }
