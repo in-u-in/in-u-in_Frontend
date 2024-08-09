@@ -1,8 +1,12 @@
 import styles from '../../styles/founder/manage-interviewee.module.css';
 import IntervieweeBox from '../../components/founder/manage-interviewee/IntervieweeBox';
 import Profile from '../../assets/icons/tourism.svg';
+import Modal from '../../components/founder/manage-interviewee/Modal';
+import useModal from '../../hooks/useModal';
 
 export default function ManageIntervieweePage() {
+  const { isOpen, closeModal, openModal } = useModal();
+
   const headerTexts = [
     '이름',
     '인터뷰 주제',
@@ -26,33 +30,37 @@ export default function ManageIntervieweePage() {
   ];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>지원자 관리</div>
-      <div className={styles.box}>
-        <div className={styles.headerBox}>
-          {headerTexts.map((text, idx) => (
-            <div
-              className={`${styles.headerText} ${idx != 7 && styles.border}`}
-              style={{ width: headerWidths[idx] }}
-              key={idx}
-            >
-              {text}
-            </div>
-          ))}
+    <>
+      <div className={styles.container}>
+        <div className={styles.title}>지원자 관리</div>
+        <div className={styles.box}>
+          <div className={styles.headerBox}>
+            {headerTexts.map((text, idx) => (
+              <div
+                className={`${styles.headerText} ${idx != 7 && styles.border}`}
+                style={{ width: headerWidths[idx] }}
+                key={idx}
+              >
+                {text}
+              </div>
+            ))}
+          </div>
+          {/*api 연결 시, 변경 */}
+          <IntervieweeBox
+            profile={Profile}
+            name={'혜성'}
+            subject={'당신의 일본 여행 경험을 공유해 주세요'}
+            job={'백엔드 개발자'}
+            ways={['화상통화', '전화']}
+            timeRange={'3시간 미만'}
+            minCost={2000}
+            maxCost={3000}
+            state={'승인대기중'}
+            openModal={openModal}
+          />
         </div>
-        {/*api 연결 시, 변경 */}
-        <IntervieweeBox
-          profile={Profile}
-          name={'혜성'}
-          subject={'당신의 일본 여행 경험을 공유해 주세요'}
-          job={'백엔드 개발자'}
-          ways={['화상통화', '전화']}
-          timeRange={'3시간 미만'}
-          minCost={2000}
-          maxCost={3000}
-          state={'승인대기중'}
-        />
       </div>
-    </div>
+      {isOpen ? <Modal closeModal={closeModal} /> : <></>}
+    </>
   );
 }

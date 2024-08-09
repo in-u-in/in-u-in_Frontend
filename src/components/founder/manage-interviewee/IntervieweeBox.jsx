@@ -10,6 +10,7 @@ export default function IntervieweeBox({
   minCost,
   maxCost,
   state,
+  openModal,
 }) {
   const maxRange = 3000;
   const minRange = 1000;
@@ -76,7 +77,12 @@ export default function IntervieweeBox({
         <div className={styles.frame}>{state}</div>
         <div className={styles.frame}>
           <div className={styles.workBox}>진행</div>
-          <div className={`${styles.workBox} ${styles.refuse}`}>거절</div>
+          <div
+            className={`${styles.workBox} ${styles.refuse}`}
+            onClick={() => openModal()}
+          >
+            거절
+          </div>
         </div>
       </div>
     </div>
