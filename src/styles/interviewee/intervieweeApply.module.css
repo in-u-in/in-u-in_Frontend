@@ -1,0 +1,92 @@
+.RootContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  padding: 0px 384px 44px 252px;
+}
+.Headerbar {
+  width: 1512px;
+  height: 46px;
+  flex-shrink: 0;
+  display: flex;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.EmptyContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 61px;
+  margin-left: 267px;
+  margin-bottom: 41.54px;
+  margin-right: 285px;
+}
+.Container {
+  width: 1071px;
+  height: 613px;
+  flex-shrink: 0;
+  gap: 0px;
+  border-radius: 8px 0px 0px 0px;
+  opacity: 0px;
+  background: #f5f6f9;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  border: 2px solid;
+  display: Flex;
+  padding: 24px 83px 130px 86px;
+}
+.ContentContainer {
+  display: flex;
+}
+.Title {
+  color: var(--front-mvp-vercel-app-black-88, rgba(0, 0, 0, 0.88));
+  font-family: Pretendard;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 46px;
+}
+.TitleContainer {
+  padding-top: 26px;
+  padding-bottom: 19px;
+}
+.Image {
+  width: 370px;
+  height: 300px;
+  margin-top: 13px;
+  margin-right: 50px;
+}
+.ChipContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.ChipImageContainer {
+  display: flex;
+  width: 370px;
+  height: 300px;
+  flex-direction: column;
+}
+.Maintitle {
+  color: var(--front-mvp-vercel-app-black-45, rgba(0, 0, 0, 0.45));
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 140% */
+  align-self: stretch;
+}
+.MainContent {
+  color: var(--front-mvp-vercel-app-black-88, rgba(0, 0, 0, 0.88));
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+  height: 66px;
+  width: 490px;
+}
+.MainContentContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 139px 32px 50px;
+}
