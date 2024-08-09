@@ -8,6 +8,7 @@ import CreateInterviewPage from './pages/founder/create-interview';
 import CalendarPage from './pages/founder/calendar';
 import ManageInterviewPage from './pages/founder/manage-interview';
 import ManageIntervieweePage from './pages/founder/manage-interviewee';
+import FounderApplyPage from './pages/founder/founder-apply';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/founderApply' element={<FounderApplyPage />} />
         <Route path='/interviewee' element={<IntervieweeHomePage />} />
         <Route path='/founder' element={<FounderHomePage />} />
         <Route path='/createInterview' element={<CreateInterviewPage />} />
