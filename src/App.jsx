@@ -6,6 +6,8 @@ import IntervieweeHomePage from './pages/interviewee/interviewee-home';
 import FounderHomePage from './pages/founder/founder-home';
 import CreateInterviewPage from './pages/founder/create-interview';
 import CalendarPage from './pages/founder/calendar';
+import ManageInterviewPage from './pages/founder/manage-interview';
+import ManageIntervieweePage from './pages/founder/manage-interviewee';
 
 const App = () => {
   return (
@@ -18,6 +20,11 @@ const App = () => {
         <Route path='/founder' element={<FounderHomePage />} />
         <Route path='/createInterview' element={<CreateInterviewPage />} />
         <Route path='/calendar' element={<CalendarPage />} />
+        <Route path='/manageInterview' element={<ManageInterviewPage />} />
+        <Route
+          path='/manageInterview/manageInterviewee/:id'
+          element={<ManageIntervieweePage />}
+        />
       </Routes>
     </BrowserRouter>
   );
