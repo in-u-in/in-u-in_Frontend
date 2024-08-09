@@ -1,99 +1,399 @@
-.background1 {
-  background-color: #ecebe9;
-  width: 100vw;
-  height: 100vh;
+/* wrapper */
+
+.wrapper_page_head_tail {
+  background-color: #f8f8f8;
+  margin: 0 auto;
+  width: 1534px;
+  height: 641px;
 }
+
+.wrapper_page3 {
+  background-color: #efefef;
+  margin: 0 auto;
+  width: 1534px;
+  height: 807px;
+}
+
+/* page1 */
 
 .title_page1 {
   text-align: center;
-  color: #245fdf;
-  padding-top: 130px;
-  font-size: 60px;
+  color: #2a4ecd;
+  padding-top: 132px;
+  /* padding에 따라 div 크기도 달라짐 */
+  font-size: 58px;
   font-weight: bold;
+  line-height: 140%;
 }
 
 .subtitle_page1 {
   text-align: center;
-  color: #245fdf;
-  margin-top: 32px;
-  margin-bottom: 25px;
+  color: #2a4ecd;
+  margin-top: 44px;
+  margin-bottom: 34px;
   padding: 0;
-  font-size: 27px;
+  font-size: 23px;
 }
 
 .input_group {
   display: flex;
+  border: none;
   justify-content: center;
   align-items: center;
   background: white;
   border: 1px solid #ccc;
   border-radius: 40px;
-  padding: 9px 10px;
+  padding: 4px 10px;
   padding-right: 2px;
-  width: 670px;
+  width: 589.66px;
+  height: 64px;
   margin: 0 auto;
 }
 
 .input_group input {
   border: none;
+  padding-left: 18px;
+  font-size: 14px;
   outline: none;
   flex-grow: 1;
 }
 
 .input_group button {
-  background-color: #245fdf;
+  background-color: #2a4ecd;
   border: none;
   color: white;
-  margin-left: 2px;
   padding: 5px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 17px;
+  margin: 0px 4px;
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 40px;
+  width: 200px;
+  height: 52px;
 }
 
 .input_group button:hover {
-  background-color: #007bff;
+  background-color: #2085f1;
 }
 
-.background2 {
-  background-color: white;
-  width: 100vw;
-  height: 100vh;
-}
+/* page2 */
 
-.description1_page2 {
+.page2_title {
   text-align: center;
   color: black;
-  padding-top: 130px;
-  font-size: 30px;
+  padding-top: 106px;
+  padding-bottom: 30px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 146%;
 }
 
-.description2_page2 {
+.container_page2 {
+  display: flex;
+  padding-top: 52px;
+  padding-bottom: 120px;
+  justify-content: center;
+  gap: 174px;
+}
+
+.container_page2_title {
   text-align: center;
   color: black;
-  padding-top: 130px;
-  font-size: 30px;
+  font-size: 21px;
   font-weight: bold;
 }
 
-.description3_page2 {
+.container_page2_description {
   text-align: center;
   color: black;
-  padding-top: 10px;
-  font-size: 22px;
-  line-height: 170%;
+  padding-top: 8px;
+  font-size: 14px;
+  line-height: 166%;
 }
 
-.background2 button {
+.container_page2_description h3 {
+  color: #777e7e;
+}
+
+.container_page2_button {
   text-align: center;
-  background-color: #245fdf;
+  padding-top: 20px;
+}
+
+.container_page2_button button {
+  background-color: #2a4ecd;
   border: none;
   color: white;
   border-radius: 3px;
-  padding: 5px 10px;
+  padding: 6px 28px;
+  font-size: 16px;
+  border-radius: 3px;
 }
+
+.container_page2_button button:hover {
+  background-color: #2085f1;
+}
+
+/* page3 */
+
+.page3_title {
+  text-align: center;
+  color: black;
+  padding-top: 54px;
+  padding-bottom: 30px;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 146%;
+}
+
+.container_page3 {
+  display: flex;
+  padding-top: 52px;
+  padding-bottom: 120px;
+  justify-content: center;
+  gap: 36px;
+}
+
+.container_page3_box {
+  background-color: white;
+  width: 260px;
+  height: 174px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px 4px rgb(219, 217, 217);
+}
+
+.container_page3_title {
+  text-align: center;
+  color: black;
+  padding-top: 28px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.container_page3_description1 {
+  text-align: center;
+  color: black;
+  padding-top: 16px;
+  font-size: 12px;
+  line-height: 180%;
+}
+
+.container_page3_description {
+  text-align: center;
+  color: black;
+  padding-top: 28px;
+  font-size: 12px;
+  line-height: 166%;
+}
+
+.container_page3_description1 li {
+  display: inline-block;
+}
+
+.container_page3_description li {
+  display: inline-block;
+}
+
+/* page4 */
+
+.page4_title {
+  text-align: center;
+  color: black;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 146%;
+}
+
+.container_page4 {
+  display: grid;
+  grid-template-columns: 262.23px 262.23px 262.23px;
+  grid-template-rows: 10px 313.33px;
+  padding-top: 30px;
+  padding-bottom: 240px;
+  justify-content: center;
+  row-gap: 160px;
+  column-gap: 40px;
+}
+
+.container_page4_price {
+  text-align: center;
+  font-size: 20px;
+}
+
+.container_page4_price h3 {
+  padding-bottom: 14px;
+}
+
+.container_page4_bar {
+  margin: 0 auto;
+  width: 160px;
+  height: 6px;
+  background-color: #2a4ecd;
+  border-radius: 40px;
+}
+
+.container_page4_box {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  width: 262.23px;
+  height: 313.33px;
+  box-shadow: 0px 0px 4px 4px rgb(219, 217, 217);
+  margin: 0 auto;
+}
+
+.container_page4_title {
+  text-align: center;
+  color: #2a4ecd;
+  padding-top: 60px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.container_page4_detail_price {
+  text-align: center;
+  padding-top: 8px;
+  font-size: 12px;
+}
+
+.container_page4_description1_1 {
+  text-align: center;
+  color: black;
+  height: 120px;
+  margin-top: 16px;
+  padding-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 180%;
+}
+
+.container_page4_description1 {
+  text-align: center;
+  color: black;
+  height: 120px;
+  padding-top: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 166%;
+}
+
+.container_page4_description1_1 li {
+  display: inline-block;
+  line-height: 250%;
+}
+
+.container_page4_description1 li {
+  display: inline-block;
+  line-height: 250%;
+}
+
+.container_page4_description2 {
+  text-align: center;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.container_page4_description2_3 {
+  text-align: center;
+  padding-top: 14px;
+  /* 왜 margin이랑 padding적용 안되나? <- 글자가 h3으로 쓰여있었기 때문, h3면 왜 적요안되나?*/
+  font-size: 12px;
+}
+
+/* page5 */
+
+.wrapper_page5 {
+  display: flex;
+  padding-bottom: 140px;
+}
+
+.page5_title {
+  text-align: left;
+  color: black;
+  padding-bottom: 26px;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 160%;
+}
+
+.description {
+  padding-top: 10px;
+  font-size: 22px;
+  line-height: 240%;
+}
+
+.page5_icon {
+  display: inline-block;
+  padding-left: 190px;
+}
+
+.page5_contents {
+  display: inline-block;
+  padding-left: 80px;
+}
+
+.page5_button {
+  text-align: left;
+  padding-top: 44px;
+}
+
+.page5_button button {
+  background-color: white;
+  border: none;
+  color: #2a4ecd;
+  width: 130px;
+  height: 50px;
+  box-shadow: 0px 0px 3px 3px rgb(233, 229, 229);
+  border-radius: 3px;
+  padding: 6px 28px;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+/* page6 */
+
+.page6_title {
+  text-align: center;
+  color: black;
+  padding-top: 54px;
+  padding-bottom: 30px;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 146%;
+}
+
+/* icon */
+.icon_page2 {
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 12px;
+}
+
+.icon3_page2 {
+  text-align: center;
+  padding-top: 48px;
+  padding-bottom: 6px;
+}
+
+.icon_page3 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 6px;
+}
+
+/* 마진, 패딩 관계 확인 - title은 padding, subtitle은 margin why??
+input 테두리 완벽하게 지우기 */
+
+/* text-align: div내의 내용 가운데정렬 <- inline block에 적용하는 것 (block, inline-block이란 찾아보기)
+margin: 0 auto: div 자체를 가운데 정렬 */
+
+/* class vs id */
+
+/* li: 가운데 정렬 위해서 inline-block으로 바꿘더니 앞에 동그라미 안 붙음.
+문장이 짧을 경우 줄바꿈도 안됨. 따라서 br로 직접해줌 <- li쓰는 이유 없어짐.*/
+
+/* div를 가로로 여러개 배치할때 flex말고 inline-block으로 하면 왜 오른쪽 div의 크기가 깨지나? */

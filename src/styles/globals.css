@@ -122,6 +122,23 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
 }
 
+/*caledar*/
+.rbc-month-view {
+  border: none !important;
+}
+
+.rbc-header {
+  border: none !important;
+}
+
+.rbc-month-row {
+  border: none !important;
+}
+
+.rbc-row-bg {
+  height: 116px !important;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

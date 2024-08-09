@@ -1,16 +1,16 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../../styles/founder/create-interview.module.css';
+import '../../styles/ckeditor.css';
 import StepBar from '../../components/founder/create-interview/StepBar';
+import ImageUpload from '../../components/founder/create-interview/ImageUpload';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const steps = ['컨셉 기획', '수요 검증', '고도화', '구체화'];
 
 export default function CreateInterviewPage() {
-  const navigate = useNavigate();
-
-  const [currentStep, setCurrentStep] = useState(0);
-
   const [title, setTitle] = useState('');
   const [step, setStep] = useState('');
   const [purpose, setPurpose] = useState('');
@@ -28,6 +28,12 @@ export default function CreateInterviewPage() {
   const [extraPriceError, setExtraPriceError] = useState('');
 
   const [formValid, setFormValid] = useState(false);
+
+  function uploadPlugin(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+      return customUploadAdapter(loader);
+    };
+  }
 
   useEffect(() => {
     const validateForm = () => {
@@ -188,114 +194,162 @@ export default function CreateInterviewPage() {
     */
 
   return (
-    <div>
-      <div className={styles.BigTitle}>인터뷰 생성</div>
-      <div className={styles.InputContainer}>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>제목</div>
+    <div className={styles.CreateInterviewContainer}>
+      <div className={styles.BigTitle}>인터뷰 생성하기</div>
+      <div className={styles.CreateContainer}>
+        <div className={styles.UploadContainer}>
+          <ImageUpload />
+        </div>
+        <div className={styles.InputContainer}>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>제목</div>
+              </div>
+              <input
+                className={styles.Input1}
+                type='text'
+                placeholder='제목을 입력하세요'
+                onChange={onTitleChange}
+              />
+              {titleError && (
+                <div className={styles.ErrorMessage}>{titleError}</div>
+              )}
             </div>
-            <input
-              className={styles.Input1}
-              type='text'
-              placeholder='제목을 입력하세요'
-              onChange={onTitleChange}
-            />
-            {titleError && (
-              <div className={styles.ErrorMessage}>{titleError}</div>
-            )}
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>아이디어 단계</div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>아이디어 단계</div>
+              </div>
+              <div className={styles.StepBar}>
+                <StepBar steps={steps} />
+              </div>
             </div>
-            <div className={styles.StepBar}>
-              <StepBar steps={steps} />
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>인터뷰 목적</div>
+              </div>
+              <input className={styles.Input1} onChange={onPurposeChange} />
+              {purposeError && (
+                <div className={styles.ErrorMessage}>{purposeError}</div>
+              )}
             </div>
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>인터뷰 목적</div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>인터뷰 유형</div>
+              </div>
+              <div className={styles.CategoryWrap}>
+                <label className={styles.CategoryLabel}>
+                  <input className={styles.Category} type='checkbox' />
+                  대면
+                  <input className={styles.Category1} type='checkbox' />
+                  화상채팅
+                  <input className={styles.Category1} type='checkbox' />
+                  전화
+                </label>
+              </div>
             </div>
-            <input className={styles.Input1} onChange={onPurposeChange} />
-            {purposeError && (
-              <div className={styles.ErrorMessage}>{purposeError}</div>
-            )}
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>인터뷰 유형</div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>인터뷰 소요시간</div>
+              </div>
+              <input
+                className={styles.Input2}
+                type='text'
+                onChange={onTakenTimeChange}
+                placeholder='분'
+              />
+              {takenTimeError && (
+                <div className={styles.ErrorMessage}>{takenTimeError}</div>
+              )}
             </div>
-            <div className={styles.CategoryWrap}>
-              <label className={styles.CategoryLabel}>
-                <input className={styles.Category} type='checkbox' />
-                대면
-                <input className={styles.Category1} type='checkbox' />
-                화상채팅
-                <input className={styles.Category1} type='checkbox' />
-                전화
-              </label>
-            </div>
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>인터뷰 소요시간</div>
-            </div>
-            <input
-              className={styles.Input2}
-              type='text'
-              onChange={onTakenTimeChange}
-              placeholder='분'
-            />
-            {takenTimeError && (
-              <div className={styles.ErrorMessage}>{takenTimeError}</div>
-            )}
-          </div>
 
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>기본 지급 단가</div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>기본 지급 단가</div>
+              </div>
+              <input
+                className={styles.Input2}
+                type='text'
+                onChange={onDefaultPriceChange}
+                placeholder='원'
+              />
+              {defaultPriceError && (
+                <div className={styles.ErrorMessage}>{defaultPriceError}</div>
+              )}
             </div>
-            <input
-              className={styles.Input2}
-              type='text'
-              onChange={onDefaultPriceChange}
-              placeholder='원'
-            />
-            {defaultPriceError && (
-              <div className={styles.ErrorMessage}>{defaultPriceError}</div>
-            )}
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.SubTitle}>
-              <div className={styles.Star}>*</div>
-              <div className={styles.Title}>추가시간 10분당 지급 단가</div>
+            <div className={styles.InputBox}>
+              <div className={styles.SubTitle}>
+                <div className={styles.Star}>*</div>
+                <div className={styles.Title}>추가시간 10분당 지급 단가</div>
+              </div>
+              <input
+                className={styles.Input2}
+                type='text'
+                onChange={onExtraPriceChange}
+                placeholder='원'
+              />
+              {extraPriceError && (
+                <div className={styles.ErrorMessage}>{extraPriceError}</div>
+              )}
             </div>
-            <input
-              className={styles.Input2}
-              type='text'
-              onChange={onExtraPriceChange}
-              placeholder='원'
-            />
-            {extraPriceError && (
-              <div className={styles.ErrorMessage}>{extraPriceError}</div>
-            )}
-          </div>
-          <div className={styles.InputBox}>
-            <div className={styles.Title2}>모집 메인글 작성</div>
-            <input className={styles.Input3} type='text' />
-          </div>
-          <div type='submit' className={styles.CreateButton}>
-            인터뷰 생성
-          </div>
-        </form>
+            <div className={styles.InputBox}>
+              <div className={styles.Title2}>모집 메인글 작성</div>
+              <div className={styles.Editor}>
+                <CKEditor
+                  editor={ClassicEditor}
+                  config={{
+                    toolbar: [
+                      'heading',
+                      '|',
+                      'bold',
+                      'italic',
+                      'link',
+                      '|',
+                      'bulletedList',
+                      'numberedList',
+                      '|',
+                      'blockQuote',
+                      'insertTable',
+                      'mediaEmbed',
+                      'undo',
+                      'redo',
+                    ],
+                    extraPlugins: [uploadPlugin],
+                  }}
+                  data=''
+                  onReady={(editor) => {
+                    const editableElement = editor.ui.view.editable.element;
+                    editableElement.setAttribute(
+                      'data-placeholder',
+                      '아래 내용이 필수적으로 필요해요\n1. 인터뷰 소개\n2. 인터뷰 방식\n3. 필요한 인터뷰 참여자 특징'
+                    );
+                  }}
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    console.log({ event, editor, data });
+                  }}
+                  onBlur={(event, editor) => {
+                    console.log('Blur.', editor);
+                  }}
+                  onFocus={(event, editor) => {
+                    console.log('Focus.', editor);
+                  }}
+                />
+              </div>
+            </div>
+            <div className={styles.ButtonContainer}>
+              <div type='submit' className={styles.CreateButton}>
+                인터뷰 생성
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

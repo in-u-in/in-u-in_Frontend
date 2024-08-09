@@ -1,11 +1,14 @@
 import React from 'react';
-import styles from './styles/IntervieweeBox.module.css';
+import styles from '../../../styles/interviewee/IntervieweeBox.module.css';
 import tourism from '../../../assets/icons/tourism.svg';
 
 export default function IntervieweeBox() {
   return (
     <div className={styles.FounderBoxWrap}>
-      <div className={styles.DefaultTime}>40분</div>
+      <div className={styles.TimeWrap}>
+        <div className={styles.DefaultTime}>40분</div>
+        <div className={styles.SmallBox} />
+      </div>
       <div className={styles.InfoWrap1}>
         <div className={styles.IntervieweeImg}>
           <img src={tourism} />
