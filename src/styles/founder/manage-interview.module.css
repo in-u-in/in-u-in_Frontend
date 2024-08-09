@@ -1,0 +1,90 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 93px 0 115px 0;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  height: 81px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 148px;
+  row-gap: 54px;
+}
+
+/*InterviewBox*/
+.interviewBoxContainer {
+  position: relative;
+  width: 300.412px;
+  height: 290.873px;
+  border: 0.611px solid #000;
+  border-top: none;
+  background-color: #fffdfd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.topBox {
+  position: absolute;
+  width: 300.412px;
+  height: 11.601px;
+  border: 0.611px solid #2a4ecd;
+  background-color: #2a4ecd;
+  border-radius: 3px 3px 0 0;
+  top: -11.601px;
+}
+
+.interviewBoxTitle {
+  margin: 18.93px 0 7px 0;
+  font-size: 9.159px;
+  font-weight: 700;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  font-size: 7.327px;
+}
+
+.first_details {
+  gap: 3px;
+}
+
+.second_details {
+  gap: 9.88px;
+}
+
+.first_detailBox {
+  height: 10px;
+  padding: 0 6px;
+  background-color: #d9d9d9;
+  border-radius: 2.442px;
+}
+
+.second_detailBox {
+  padding: 0 4px;
+  height: 13px;
+  background-color: #fafafa;
+  border: 0.611px solid #d9d9d9;
+  border-radius: 2.442px;
+}
+
+.image {
+  width: 222.256px;
+  height: 187.452px;
+  object-fit: cover;
+  margin: 4px 0 14px 0;
+}

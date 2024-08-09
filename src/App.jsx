@@ -7,6 +7,7 @@ import FounderHomePage from './pages/founder/founder-home';
 import CreateInterviewPage from './pages/founder/create-interview';
 import CalendarPage from './pages/founder/calendar';
 import ManageIntervieweePage from './pages/founder/manage-interviewee';
+import ManageInterviewPage from './pages/founder/manage-interview';
 
 const App = () => {
   return (
@@ -19,7 +20,11 @@ const App = () => {
         <Route path='/founder' element={<FounderHomePage />} />
         <Route path='/createInterview' element={<CreateInterviewPage />} />
         <Route path='/calendar' element={<CalendarPage />} />
-        <Route path='/manageInterviewee' element={<ManageIntervieweePage />} />
+        <Route path='/manageInterview' element={<ManageInterviewPage />} />
+        <Route
+          path='/manageInterview/manageInterviewee/:id'
+          element={<ManageIntervieweePage />}
+        />
       </Routes>
     </BrowserRouter>
   );
