@@ -1,0 +1,20 @@
+.ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+  min-height: 400px;
+  margin-bottom: 20px;
+}
+
+.ck.ck-editor__editable {
+  position: relative;
+}
+
+.ck.ck-editor__editable::before {
+  content: attr(data-placeholder);
+  white-space: pre-wrap;
+  color: rgb(183, 183, 183);
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  pointer-events: none;
+  line-height: 25px;
+  font-size: 15px;
+}

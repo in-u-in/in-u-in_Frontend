@@ -10,27 +10,34 @@
 .IntervieweeBox {
   display: flex;
   flex-direction: column;
-  width: 900px;
+  width: 1072px;
+  height: 968px;
+  border-radius: 10px;
+  background-color: #f5f6f9;
+  margin-top: 80px;
+  padding: 25px;
 }
 
 .Title {
   display: flex;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 600;
   text-align: center;
 }
 
 .FounderContainer {
   display: flex;
   margin-top: 10px;
+  margin-left: 45px;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
 }
 
 .SubTitle {
-  font-size: 21px;
-  font-weight: bold;
-  margin-top: 70px;
-  margin-bottom: 10px;
-  align-self: flex-start;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  align-self: center;
 }
