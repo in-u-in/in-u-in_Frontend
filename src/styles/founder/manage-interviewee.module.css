@@ -10,6 +10,10 @@
   font-size: 30px;
   font-weight: 600;
   height: 81px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 44px;
 }
 
 .box {
@@ -101,6 +105,7 @@
   height: 22px;
   border-radius: 100%;
   border: none;
+  object-fit: cover;
 }
 
 .way {
