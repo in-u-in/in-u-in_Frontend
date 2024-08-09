@@ -62,7 +62,6 @@ export default function IntervieweeHomePage() {
           <FounderBox />
           <FounderBox />
           <FounderBox />
-          <FounderBox />
         </div>
       </div>
       <div className={styles.IntervieweeBox}>
@@ -73,7 +72,6 @@ export default function IntervieweeHomePage() {
                             key={item.id}
                         />
                     ))*/}
-          <FounderBox />
           <FounderBox />
           <FounderBox />
           <FounderBox />

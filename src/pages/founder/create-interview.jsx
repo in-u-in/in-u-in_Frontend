@@ -2,15 +2,15 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../../styles/founder/create-interview.module.css';
+import '../../styles/ckeditor.css';
 import StepBar from '../../components/founder/create-interview/StepBar';
+import ImageUpload from '../../components/founder/create-interview/ImageUpload';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const steps = ['컨셉 기획', '수요 검증', '고도화', '구체화'];
 
 export default function CreateInterviewPage() {
-  const navigate = useNavigate();
-
-  const [currentStep, setCurrentStep] = useState(0);
-
   const [title, setTitle] = useState('');
   const [step, setStep] = useState('');
   const [purpose, setPurpose] = useState('');
@@ -28,6 +28,12 @@ export default function CreateInterviewPage() {
   const [extraPriceError, setExtraPriceError] = useState('');
 
   const [formValid, setFormValid] = useState(false);
+
+  function uploadPlugin(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+      return customUploadAdapter(loader);
+    };
+  }
 
   useEffect(() => {
     const validateForm = () => {
@@ -187,45 +193,12 @@ export default function CreateInterviewPage() {
     };
     */
 
-  const [imageUrl, setImageUrl] = useState(null);
-  const imgRef = useRef();
-
-  const onChangeImage = () => {
-    const reader = new FileReader();
-    const file = imgRef.current.files[0];
-    console.log(file);
-
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImageUrl(reader.result);
-      console.log('이미지주소', reader.result);
-    };
-  };
-
   return (
     <div className={styles.CreateInterviewContainer}>
-      <div className={styles.BigTitle}>인터뷰 생성</div>
+      <div className={styles.BigTitle}>인터뷰 생성하기</div>
       <div className={styles.CreateContainer}>
         <div className={styles.UploadContainer}>
-          <div className={styles.UploadTextBox}>
-            <div className={styles.UploadText}>
-              인터뷰에 적절한 이미지를 업로드 해주세요.
-            </div>
-            <div className={styles.UploadText2}>
-              이미지는 .eps 또는 .jpg 형식이어야합니다.
-            </div>
-            <div className={styles.UploadText2}>
-              동영상은 .mov 또는 .Mp4 형식이어야합니다.
-            </div>
-            <div className={styles.UploadText2}>
-              <span className={styles.BlueText}>이미지</span>나
-              <span className={styles.BlueText}> 동영상</span>에 대한 자세한
-              요구사항은 지원센터에 문의하세요
-            </div>
-            <React.Fragment>
-              <input type='file' ref={imgRef} onChange={onChangeImage}></input>
-            </React.Fragment>
-          </div>
+          <ImageUpload />
         </div>
         <div className={styles.InputContainer}>
           <form onSubmit={handleSubmit}>
@@ -327,7 +300,48 @@ export default function CreateInterviewPage() {
             </div>
             <div className={styles.InputBox}>
               <div className={styles.Title2}>모집 메인글 작성</div>
-              <input className={styles.Input3} type='text' />
+              <div className={styles.Editor}>
+                <CKEditor
+                  editor={ClassicEditor}
+                  config={{
+                    toolbar: [
+                      'heading',
+                      '|',
+                      'bold',
+                      'italic',
+                      'link',
+                      '|',
+                      'bulletedList',
+                      'numberedList',
+                      '|',
+                      'blockQuote',
+                      'insertTable',
+                      'mediaEmbed',
+                      'undo',
+                      'redo',
+                    ],
+                    extraPlugins: [uploadPlugin],
+                  }}
+                  data=''
+                  onReady={(editor) => {
+                    const editableElement = editor.ui.view.editable.element;
+                    editableElement.setAttribute(
+                      'data-placeholder',
+                      '아래 내용이 필수적으로 필요해요\n1. 인터뷰 소개\n2. 인터뷰 방식\n3. 필요한 인터뷰 참여자 특징'
+                    );
+                  }}
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    console.log({ event, editor, data });
+                  }}
+                  onBlur={(event, editor) => {
+                    console.log('Blur.', editor);
+                  }}
+                  onFocus={(event, editor) => {
+                    console.log('Focus.', editor);
+                  }}
+                />
+              </div>
             </div>
             <div className={styles.ButtonContainer}>
               <div type='submit' className={styles.CreateButton}>

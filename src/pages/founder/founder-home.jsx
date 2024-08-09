@@ -62,6 +62,7 @@ export default function FounderHomePage() {
           <IntervieweeBox />
           <IntervieweeBox />
           <IntervieweeBox />
+          <IntervieweeBox />
         </div>
       </div>
       <div className={styles.FounderBox}>
@@ -72,6 +73,7 @@ export default function FounderHomePage() {
                                 key={item.id}
                             />
                         ))*/}
+          <IntervieweeBox />
           <IntervieweeBox />
           <IntervieweeBox />
           <IntervieweeBox />

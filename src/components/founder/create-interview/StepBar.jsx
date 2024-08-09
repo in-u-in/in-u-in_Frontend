@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import styles from '../../../styles/founder/StepBar.module.css';
 
-const StepBar = ({ steps }) => {
+export default function StepBar({ steps }) {
   const [currentStep, setCurrentStep] = useState(0);
 
   const handleStepClick = (index) => {
@@ -29,6 +29,4 @@ const StepBar = ({ steps }) => {
       ))}
     </div>
   );
-};
-
-export default StepBar;
+}
