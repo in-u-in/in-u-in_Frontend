@@ -82,8 +82,10 @@ input::placeholder {
   gap: 2%;
 }
 
-.te {
+.masking {
   font-size: 30px;
+  display: flex;
+  align-items: center;
 }
 
 .rolecontainer {
@@ -206,4 +208,73 @@ input::placeholder {
   width: 250px;
   height: 65px;
   cursor: pointer;
+}
+
+.roleButton {
+  background: #ffffff;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  width: Fixed (160px);
+  height: 60px;
+  padding: 14px 36px 14px 36px;
+  margin-right: 20px;
+  color: #6c6c6c;
+  font-size: 25px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/*프로필 이미지 스타일 */
+.profileUploadContainer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profileImageWrapper {
+  width: 150px;
+  height: 150px;
+  border: none;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.defaultProfileImage {
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+}
+
+.fileInput {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.bigbox {
+  border: 1px solid #2a4ecd;
+  border-radius: 8px;
+  width: 100%;
+  height: 40%;
+  margin-bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
