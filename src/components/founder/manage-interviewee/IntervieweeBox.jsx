@@ -12,7 +12,7 @@ export default function IntervieweeBox({
   state,
   openModal,
 }) {
-  const maxRange = 3000;
+  const maxRange = 4000;
   const minRange = 1000;
 
   const right = (maxCost) => {
