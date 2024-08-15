@@ -16,7 +16,7 @@ export default function FounderBox({ founderId }) {
   const handleProfileClick = () => {
     const newViewCount = viewCount + 1;
     setViewCount(newViewCount);
-    localStorage.setItem(`viewCount_${profileId}`, newViewCount);
+    localStorage.setItem(`viewCount_${founderId}`, newViewCount);
   };
 
   return (
