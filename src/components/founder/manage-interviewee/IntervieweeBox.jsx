@@ -12,7 +12,7 @@ export default function IntervieweeBox({
   state,
   openModal,
 }) {
-  const maxRange = 3000;
+  const maxRange = 4000;
   const minRange = 1000;
 
   const right = (maxCost) => {
@@ -36,7 +36,7 @@ export default function IntervieweeBox({
         <div className={styles.frame}>{subject}</div>
         <div className={styles.frame}>{job}</div>
         <div className={styles.frame}>
-          {ways.map((way, idx) => (
+          {ways?.map((way, idx) => (
             <div key={idx} className={styles.way}>
               {way}
             </div>

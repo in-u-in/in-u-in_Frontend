@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import styles from '../../../styles/founder/manage-interview.module.css';
 import moment from 'moment';
 
 export default function InterviewBox({
+  type,
   title,
   applicant,
   wating,
@@ -11,9 +13,13 @@ export default function InterviewBox({
   cost,
   way,
   compensate,
+  id,
 }) {
   return (
-    <div className={styles.interviewBoxContainer}>
+    <Link
+      to={`/manageInterview/manageInterviewee/${id}`}
+      className={styles.interviewBoxContainer}
+    >
       <div className={styles.topBox} />
       <div className={styles.interviewBoxTitle}>{title}</div>
       <div className={`${styles.details} ${styles.first_details}`}>
@@ -33,6 +39,6 @@ export default function InterviewBox({
         <div className={styles.second_detailBox}>{`${way} 선호`}</div>
         <div className={styles.second_detailBox}>{compensate}</div>
       </div>
-    </div>
+    </Link>
   );
 }

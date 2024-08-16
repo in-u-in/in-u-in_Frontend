@@ -11,7 +11,7 @@ export default function Modal({ closeModal }) {
           진행이 가능합니다.
         </div>
         <div className={styles.button} onClick={() => closeModal()}>
-          거절한 인터뷰 희망자 보러가기
+          인터뷰 거절하기
         </div>
       </div>
     </div>
