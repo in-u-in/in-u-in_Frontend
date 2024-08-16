@@ -46,7 +46,6 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <Header />
       <div className={styles.content}>
         <div className={styles.img}>
           <img src={login} />

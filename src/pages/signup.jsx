@@ -120,9 +120,6 @@ const SignUp = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <Header />
-      </div>
       <div className={styles.img}>
         <img src={login} alt='로그인화면' />
       </div>
