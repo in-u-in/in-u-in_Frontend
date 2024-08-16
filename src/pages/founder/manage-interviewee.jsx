@@ -1,11 +1,38 @@
 import styles from '../../styles/founder/manage-interviewee.module.css';
 import IntervieweeBox from '../../components/founder/manage-interviewee/IntervieweeBox';
-import Profile from '../../assets/icons/tourism.svg';
 import Modal from '../../components/founder/manage-interviewee/Modal';
 import useModal from '../../hooks/useModal';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function ManageIntervieweePage() {
   const { isOpen, closeModal, openModal } = useModal();
+  const [data, setData] = useState();
+  const [intervieweeList, setIntervieweeList] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:5173/data/interview.json'
+        );
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const numberId = Number(id);
+    const interview = data?.interview?.find((item) => item.id === numberId);
+    if (interview) {
+      setIntervieweeList(interview.interviewee);
+    }
+  }, [data]);
 
   const headerTexts = [
     '이름',
@@ -46,21 +73,24 @@ export default function ManageIntervieweePage() {
             ))}
           </div>
           {/*api 연결 시, 변경 */}
-          <IntervieweeBox
-            profile={Profile}
-            name={'혜성'}
-            subject={'당신의 일본 여행 경험을 공유해 주세요'}
-            job={'백엔드 개발자'}
-            ways={['화상통화', '전화']}
-            timeRange={'3시간 미만'}
-            minCost={2000}
-            maxCost={3000}
-            state={'승인대기중'}
-            openModal={openModal}
-          />
+          {intervieweeList?.map((item, idx) => (
+            <IntervieweeBox
+              key={idx}
+              profile={item.profile}
+              name={item.name}
+              subject={item.subject}
+              job={item.job}
+              ways={item.ways}
+              timeRange={item.timeRange}
+              minCost={item.minCost}
+              maxCost={item.maxCost}
+              state={item.state}
+              openModal={openModal}
+            />
+          ))}
         </div>
       </div>
-      {isOpen ? <Modal closeModal={closeModal} /> : <></>}
+      {isOpen && <Modal closeModal={closeModal} />}
     </>
   );
 }

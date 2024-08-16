@@ -1,5 +1,6 @@
 import styles from '../../styles/founder/manage.module.css';
 import IntervieweeBox from '../../components/founder/manage/IntevieweeBox';
+import InterviewBox from '../../components/founder/manage-interview/InterviewBox';
 import Profile from '../../assets/icons/tourism.svg';
 import useModal from '../../hooks/useModal';
 import RefuseModal from '../../components/founder/manage/RefuseModal';
@@ -10,7 +11,19 @@ export default function ManagePage() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.interviewBox}></div>
+      <div className={styles.interviewBox}>
+        <InterviewBox
+          title={'당신의 베트남 여행을 공유해주세요.'}
+          applicant={12}
+          wating={2}
+          deadline={'2024-08-01T12:00:00'}
+          image={Image}
+          time={40}
+          cost={12000}
+          way={'대면'}
+          compensate={'플랫폼 내 포인트 추가 보상'}
+        />
+      </div>
       <div className={styles.intervieweeBox}>
         <IntervieweeBox
           type={'refuseInterviewee'}
