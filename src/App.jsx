@@ -9,8 +9,10 @@ import CalendarPage from './pages/founder/calendar';
 import ManageInterviewPage from './pages/founder/manage-interview';
 import ManageIntervieweePage from './pages/founder/manage-interviewee';
 import FounderApplyPage from './pages/founder/founder-apply';
+import ManagePage from './pages/founder/manage';
 import IntervieweeApplyPage from './pages/interviewee/interviewee-apply';
 import IntervieweeApplicationpage from './pages/interviewee/interviewee-application';
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -33,6 +35,7 @@ const App = () => {
           path='/manageInterview/manageInterviewee/:id'
           element={<ManageIntervieweePage />}
         />
+        <Route path='/manage' element={<ManagePage />} />
       </Routes>
     </BrowserRouter>
   );

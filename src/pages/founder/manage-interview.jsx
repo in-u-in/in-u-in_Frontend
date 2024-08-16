@@ -1,67 +1,44 @@
 import styles from '../../styles/founder/manage-interview.module.css';
 import InterviewBox from '../../components/founder/manage-interview/InterviewBox';
-import Image from '../../assets/icons/tourism.svg';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function ManageInterviewPage() {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:5173/data/interview.json'
+        );
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>인터뷰 관리</div>
       <div className={styles.box}>
-        <InterviewBox
-          title={'당신의 베트남 여행을 공유해주세요.'}
-          applicant={12}
-          wating={2}
-          deadline={'2024-08-01T12:00:00'}
-          image={Image}
-          time={40}
-          cost={12000}
-          way={'대면'}
-          compensate={'플랫폼 내 포인트 추가 보상'}
-        />
-        <InterviewBox
-          title={'당신의 베트남 여행을 공유해주세요.'}
-          applicant={12}
-          wating={2}
-          deadline={'2024-08-01T12:00:00'}
-          image={Image}
-          time={40}
-          cost={12000}
-          way={'대면'}
-          compensate={'플랫폼 내 포인트 추가 보상'}
-        />
-        <InterviewBox
-          title={'당신의 베트남 여행을 공유해주세요.'}
-          applicant={12}
-          wating={2}
-          deadline={'2024-08-01T12:00:00'}
-          image={Image}
-          time={40}
-          cost={12000}
-          way={'대면'}
-          compensate={'플랫폼 내 포인트 추가 보상'}
-        />
-        <InterviewBox
-          title={'당신의 베트남 여행을 공유해주세요.'}
-          applicant={12}
-          wating={2}
-          deadline={'2024-08-01T12:00:00'}
-          image={Image}
-          time={40}
-          cost={12000}
-          way={'대면'}
-          compensate={'플랫폼 내 포인트 추가 보상'}
-        />
-        <InterviewBox
-          title={'당신의 베트남 여행을 공유해주세요.'}
-          applicant={12}
-          wating={2}
-          deadline={'2024-08-01T12:00:00'}
-          image={Image}
-          time={40}
-          cost={12000}
-          way={'대면'}
-          compensate={'플랫폼 내 포인트 추가 보상'}
-        />
+        {data?.interview?.map((item, idx) => (
+          <InterviewBox
+            key={idx}
+            title={item.title}
+            applicant={item.applicant}
+            wating={item.wating}
+            deadline={item.deadline}
+            image={item.image}
+            time={item.time}
+            cost={item.cost}
+            way={item.way}
+            compensate={item.compensate}
+            id={item.id}
+          />
+        ))}
       </div>
     </div>
   );
