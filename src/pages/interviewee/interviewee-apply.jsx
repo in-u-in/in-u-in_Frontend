@@ -2,7 +2,6 @@ import styles from '../../styles/interviewee/intervieweeApply.module.css';
 import ProfileSkeletonImage from '../../assets/skeletonImage/profileCardSkeletonImage.png';
 import { useNavigate } from 'react-router-dom';
 import { Chip } from '../founder/founder-apply';
-import Header from '../../components/Header';
 const IntervieweeApplyPage = () => {
   const navigate = useNavigate(); // useNavigate를 이용해 navigate 정의
   const handleApplication = () => {
@@ -10,7 +9,6 @@ const IntervieweeApplyPage = () => {
   };
   return (
     <>
-      <Header />
       <div className={styles.Root}>
         <div className={styles.RootContainer}>
           <section className={styles.EmptyContainer}></section>

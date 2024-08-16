@@ -1,4 +1,3 @@
-import Header from '../../components/Header';
 import styles from '../../styles/interviewee/intervieweeApplication.module.css';
 import ProfileSkeletonImage from '../../assets/skeletonImage/profileCardSkeletonImage.png';
 import useModal from '../../hooks/useModal';
@@ -36,7 +35,6 @@ function IntervieweeApplicationpage() {
   };
   return (
     <>
-      <Header />
       <div className={styles.RootContainer}>
         <div className={styles.Column}>
           <span className={styles.ApplyTitle}>희망 인터뷰 조건 설정하기</span>

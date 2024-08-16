@@ -1,6 +1,5 @@
 import styles from '../../styles/founder/founder-apply.module.css';
 import ProfileSkeletonImage from '../../assets/skeletonImage/profileCardSkeletonImage.png';
-import Header from '../../components/Header';
 import { useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -30,7 +29,6 @@ const FounderApplyPage = () => {
 
   return (
     <>
-      <Header />
       <div className={styles.RootContainer}>
         <section className={styles.TitleSectionLayout}>
           <header className={styles.TitleSectionHeaderTypo}>결제하기</header>
