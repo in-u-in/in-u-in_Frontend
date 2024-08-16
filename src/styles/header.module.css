@@ -2,12 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 0px 60px 0px 60px;
   background-color: #ffffffff;
   box-shadow: 0px 4px 4px 0px #0000001a;
   width: 100%;
-  position: fixed;
+  height: 100%;
 }
 
 .logo {
@@ -22,7 +21,7 @@
 }
 
 .headerItem {
-  margin: 0 10px;
+  margin: 0 20px;
   font-size: 18px;
   font-weight: 500;
   text-align: center;
