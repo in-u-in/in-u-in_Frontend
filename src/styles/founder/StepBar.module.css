@@ -16,7 +16,7 @@
 }
 
 .Step.Completed {
-  background-color: #2a4ecd;
+  background-color: #1677ff;
   color: white;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .StepLine.Completed {
-  background-color: #2a4ecd;
+  background-color: #1677ff;
 }
 
 .LabelContainer {
