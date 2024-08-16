@@ -142,3 +142,90 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+.react-datepicker {
+  font-family: 'Pretendard', sans-serif; /* Pretendard 폰트 사용 */
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.react-datepicker__month-container {
+  width: 455px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 달력 헤더 */
+.react-datepicker__header {
+  background-color: #ffffff;
+  border-bottom: none;
+  padding-top: 10px;
+}
+
+/* 연도 및 월 표시 */
+.react-datepicker__current-month {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.react-datepicker__week {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* 요일 표시 */
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-around;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 요일 개별 셀 */
+.react-datepicker__day-name {
+  color: #333333;
+}
+
+/* 날짜 셀 */
+.react-datepicker__day {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  margin: 2px;
+  font-size: 16px;
+  color: #333333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 선택된 날짜 */
+.react-datepicker__day--selected {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* 오늘 날짜 */
+.react-datepicker__day--today {
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+
+/* 비활성화된 날짜 */
+.react-datepicker__day--disabled {
+  color: #dddddd;
+}
+
+/* 좌우 화살표 스타일 */
+.react-datepicker__navigation {
+  top: 12px;
+  line-height: 1.6;
+}
+
+.react-datepicker__navigation--previous {
+  border-right-color: #333333;
+}
+
+.react-datepicker__navigation--next {
+  border-left-color: #333333;
+}
