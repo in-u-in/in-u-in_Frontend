@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import login from '../assets/icons/login.svg';
+import naver from '../assets/icons/naver.svg';
+import kakao from '../assets/icons/kakao.svg';
+import google from '../assets/icons/google.svg';
+import apple from '../assets/icons/apple.svg';
+import facebook from '../assets/icons/facebook.svg';
 import styles from '../styles/login.module.css';
 import { Link } from 'react-router-dom';
 const Login = () => {
@@ -71,13 +76,13 @@ const Login = () => {
               placeholder='비밀번호를 입력해주세요'
             />
           </div>
-          <button
+          {/*<button
             type='button'
             onClick={toggleShowPassword}
             className={styles.toggleButton}
           >
             {showPassword ? '숨기기' : '보이기'}
-          </button>
+          </button>*/}
           <div className={styles.section}>
             <label>
               <input type='checkbox' />
@@ -91,7 +96,31 @@ const Login = () => {
           <div className={styles.box}>
             <button>로그인</button>
           </div>
-          <button>소셜로그인</button>
+          <div className={styles.horizonLine}>
+            <span className={styles.horizonLineText}>간편 로그인</span>
+          </div>
+          <div className={styles.socialLogin}>
+            <button>
+              <img src={naver} />
+            </button>
+            <button>
+              <img src={kakao} />
+            </button>
+            <button>
+              <img src={google} />
+            </button>
+            <button>
+              <img src={apple} />
+            </button>
+            <button>
+              <img src={facebook} />
+            </button>
+          </div>
+          <div className={styles.subtext}>
+            브라우저를 닫아도 로그인이 유지될 수 있습니다.
+            <br /> 개인정보 보호를 위해 공공장소에서 이용 시에는 꼭 로그아웃
+            해주세요.
+          </div>
         </div>
       </div>
     </div>

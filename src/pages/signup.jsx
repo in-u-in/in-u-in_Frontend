@@ -7,20 +7,21 @@ import Step1 from '../components/signup/Step1';
 import Step2 from '../components/signup/Step2';
 import Step3 from '../components/signup/Step3';
 import Step4 from '../components/signup/Step4';
-import Step5Interviewer from '../components/signup/Step5Interviewer';
-import Step6Interviewer from '../components/signup/Step6Interviewer';
-import Step7Interviewer from '../components/signup/Step7Interviewer';
-import Step5Interviewee from '../components/signup/Step5Interviewee';
-import Step6Interviewee from '../components/signup/Step6Interviewee';
-import Step7Interviewee from '../components/signup/Step7Interviewee';
-import Step8Interviewee from '../components/signup/Step8Interviewee';
+import Step5Interviewer from '../components/signup/Step5-interviewer';
+import Step6Interviewer from '../components/signup/Step6-interviewer';
+import Step7Interviewer from '../components/signup/Step7-interviewer';
+import Step5Interviewee from '../components/signup/Step5-interviewee';
+import Step6Interviewee from '../components/signup/Step6-interviewee';
+import Step7Interviewee from '../components/signup/Step7-interviewee';
+import Step8Interviewee from '../components/signup/Step8-interviewee';
+
 const SignUp = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: '', // 이름
     birth: '', // 주민등록번호 앞자리
     sex: '', // 주민등록번호 뒷자리 하나 입력받고 남자 or 여자 (1,3 -> 남자, 2,4-> 여자)
-    carrier: '', //통신사 SKT,KT,LG
+    carrier: '', // 통신사 SKT,KT,LG
     phone: '', // 휴대폰 번호
     verificationCode: '', // 인증번호
     id: '', // 아이디
@@ -85,93 +86,47 @@ const SignUp = () => {
     setStep(step + 1);
   };
 
+  const renderStep = () => {
+    const commonProps = {
+      formData,
+      handleInputChange,
+      handleNext,
+      handleChanegeCheck,
+      navigate,
+    };
+
+    const steps = {
+      1: <Step1 {...commonProps} />,
+      2: <Step2 {...commonProps} />,
+      3: <Step3 {...commonProps} />,
+      4: <Step4 {...commonProps} />,
+    };
+
+    if (formData.role === 'interviewer') {
+      steps[5] = <Step5Interviewer {...commonProps} />;
+      steps[6] = <Step6Interviewer {...commonProps} />;
+      steps[7] = <Step7Interviewer {...commonProps} />;
+    }
+
+    if (formData.role === 'interviewee') {
+      steps[5] = <Step5Interviewee {...commonProps} />;
+      steps[6] = <Step6Interviewee {...commonProps} />;
+      steps[7] = <Step7Interviewee {...commonProps} />;
+      steps[8] = <Step8Interviewee {...commonProps} />;
+    }
+
+    return steps[step] || null;
+  };
+
   return (
     <div className={styles.container}>
-      <Header />
-      <div className={styles.body}>
-        <div className={styles.img}>
-          <img src={login} />
-        </div>
-        {step === 1 && (
-          <Step1
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleNext={handleNext}
-          />
-        )}
-
-        {step === 2 && (
-          <Step2
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleNext={handleNext}
-          />
-        )}
-
-        {step === 3 && (
-          <Step3
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleNext={handleNext}
-          />
-        )}
-
-        {step === 4 && (
-          <Step4
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleNext={handleNext}
-            handleChanegeCheck={handleChanegeCheck}
-          />
-        )}
-
-        {step === 5 && formData.role === 'interviewer' && (
-          <Step5Interviewer
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleNext={handleNext}
-          />
-        )}
-
-        {step === 6 && formData.role === 'interviewer' && (
-          <Step6Interviewer
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleNext={handleNext}
-          />
-        )}
-        {step === 7 && formData.role === 'interviewe  r' && (
-          <Step7Interviewer navigate={navigate} />
-        )}
-
-        {step === 5 && formData.role === 'interviewee' && (
-          <Step5Interviewee
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleNext={handleNext}
-          />
-        )}
-
-        {step === 6 && formData.role === 'interviewee' && (
-          <Step6Interviewee
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleNext={handleNext}
-          />
-        )}
-
-        {step === 7 && formData.role === 'interviewee' && (
-          <Step7Interviewee
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleNext={handleNext}
-          />
-        )}
-
-        {step === 8 && formData.role === 'interviewee' && (
-          <Step8Interviewee navigate={navigate} />
-        )}
+      <div className={styles.header}>
+        <Header />
       </div>
+      <div className={styles.img}>
+        <img src={login} alt='로그인화면' />
+      </div>
+      {renderStep()}
     </div>
   );
 };

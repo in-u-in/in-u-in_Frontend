@@ -22,8 +22,9 @@ const Step2 = ({ formData, handleInputChange, handleNext }) => {
         />
       </div>
       <div className={styles.box}>
-        <span className={styles.subtitle}>인증번호가 오지 않는다면?</span>
-        <span>재발송</span>
+        <div className={styles.step2Text}>
+          인증번호가 오지 않는다면? <a>재발송</a>
+        </div>
       </div>
       <div className={styles.box}>
         <button className={styles.buttonBox} type='button' onClick={handleNext}>
