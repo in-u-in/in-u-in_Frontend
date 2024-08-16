@@ -2,11 +2,8 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../../styles/founder/create-interview.module.css';
-import '../../styles/ckeditor.css';
 import StepBar from '../../components/founder/create-interview/StepBar';
 import ImageUpload from '../../components/founder/create-interview/ImageUpload';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const steps = ['컨셉 기획', '수요 검증', '고도화', '구체화'];
 
@@ -210,7 +207,7 @@ export default function CreateInterviewPage() {
               <input
                 className={styles.Input1}
                 type='text'
-                placeholder='제목을 입력하세요'
+                placeholder='인터뷰 제목을 입력 해주세요'
                 onChange={onTitleChange}
               />
               {titleError && (
@@ -237,10 +234,11 @@ export default function CreateInterviewPage() {
               )}
             </div>
             <div className={styles.InputBox}>
-              <div className={styles.SubTitle}>
+              <div className={styles.SubTitle2}>
                 <div className={styles.Star}>*</div>
                 <div className={styles.Title}>인터뷰 유형</div>
               </div>
+              <div className={styles.Text1}>중복 선택 가능합니다.</div>
               <div className={styles.CategoryWrap}>
                 <label className={styles.CategoryLabel}>
                   <input className={styles.Category} type='checkbox' />
@@ -300,48 +298,18 @@ export default function CreateInterviewPage() {
             </div>
             <div className={styles.InputBox}>
               <div className={styles.Title2}>모집 메인글 작성</div>
-              <div className={styles.Editor}>
-                <CKEditor
-                  editor={ClassicEditor}
-                  config={{
-                    toolbar: [
-                      'heading',
-                      '|',
-                      'bold',
-                      'italic',
-                      'link',
-                      '|',
-                      'bulletedList',
-                      'numberedList',
-                      '|',
-                      'blockQuote',
-                      'insertTable',
-                      'mediaEmbed',
-                      'undo',
-                      'redo',
-                    ],
-                    extraPlugins: [uploadPlugin],
-                  }}
-                  data=''
-                  onReady={(editor) => {
-                    const editableElement = editor.ui.view.editable.element;
-                    editableElement.setAttribute(
-                      'data-placeholder',
-                      '아래 내용이 필수적으로 필요해요\n1. 인터뷰 소개\n2. 인터뷰 방식\n3. 필요한 인터뷰 참여자 특징'
-                    );
-                  }}
-                  onChange={(event, editor) => {
-                    const data = editor.getData();
-                    console.log({ event, editor, data });
-                  }}
-                  onBlur={(event, editor) => {
-                    console.log('Blur.', editor);
-                  }}
-                  onFocus={(event, editor) => {
-                    console.log('Focus.', editor);
-                  }}
-                />
-              </div>
+              <textarea
+                className={styles.Question}
+                placeholder='인터뷰에 대해 소개해주세요'
+              />
+              <textarea
+                className={styles.Question}
+                placeholder='인터뷰 방식에 대해 적어주세요'
+              />
+              <textarea
+                className={styles.Question}
+                placeholder='필요한 인터뷰 참여자의 특징은 무엇인가요?'
+              />
             </div>
             <div className={styles.ButtonContainer}>
               <div type='submit' className={styles.CreateButton}>
