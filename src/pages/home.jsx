@@ -5,8 +5,76 @@ import icon2_page2 from '../assets/icons/icon2_page2.svg';
 import icon3_page2 from '../assets/icons/icon3_page2.svg';
 import icon_page3 from '../assets/icons/icon_page3.svg';
 import icon_page5 from '../assets/icons/icon_page5.svg';
+import Price1_cliked from '../components/home/Price1Cliked';
+import Box1 from '../components/home/box1';
+import Box1_cliked from '../components/home/Box1Cliked';
+import Price2_cliked from '../components/home/Price2Cliked';
+import Box2 from '../components/home/box2';
+import Box2_cliked from '../components/home/Box2Cliked';
+import Price3_cliked from '../components/home/Price3Cliked';
+import Box3 from '../components/home/box3';
+import Box3_cliked from '../components/home/Box3Cliked';
+import { useState } from 'react';
 
 export default function Home() {
+  const [box1, setBox1] = useState(2);
+  const [box2, setBox2] = useState(1);
+  const [box3, setBox3] = useState(1);
+
+  const clickPrice1 = (n) => {
+    setBox1(n);
+  };
+
+  const clickBox1 = (n) => {
+    setBox1(n);
+  };
+
+  const clickPrice2 = (n) => {
+    setBox2(n);
+  };
+
+  const clickBox2 = (n) => {
+    setBox2(n);
+  };
+
+  const clickPrice3 = (n) => {
+    setBox3(n);
+  };
+
+  const clickBox3 = (n) => {
+    setBox3(n);
+  };
+
+  const selectPrice1 = {
+    1: null,
+    2: <Price1_cliked />,
+  };
+
+  const selectBox1 = {
+    1: <Box1 />,
+    2: <Box1_cliked />,
+  };
+
+  const selectPrice2 = {
+    1: null,
+    2: <Price2_cliked />,
+  };
+
+  const selectBox2 = {
+    1: <Box2 />,
+    2: <Box2_cliked />,
+  };
+
+  const selectPrice3 = {
+    1: null,
+    2: <Price3_cliked />,
+  };
+
+  const selectBox3 = {
+    1: <Box3 />,
+    2: <Box3_cliked />,
+  };
+
   return (
     <div>
       <div class={styles.wrapper_page_head_tail}>
@@ -151,73 +219,71 @@ export default function Home() {
         </div>
         <div className={styles.container_page4}>
           <div className={styles.container_page4_price}>
-            <h3>무료</h3>
-            <div className={styles.container_page4_bar}></div>
+            <button
+              onClick={() => {
+                clickPrice1(2);
+                clickPrice2(1);
+                clickPrice3(1);
+              }}
+            >
+              무료
+            </button>
+            {box1 && <div>{selectPrice1[box1]}</div>}
           </div>
           <div className={styles.container_page4_price}>
-            <h3>구독제</h3>
-            <div className={styles.container_page4_bar}></div>
+            <button
+              onClick={() => {
+                clickPrice2(2);
+                clickPrice1(1);
+                clickPrice3(1);
+              }}
+            >
+              구독제
+            </button>
+            {box1 && <div>{selectPrice2[box2]}</div>}
           </div>
           <div className={styles.container_page4_price}>
-            <h3>인터뷰 컨설팅</h3>
-            <div className={styles.container_page4_bar}></div>
+            <button
+              onClick={() => {
+                clickPrice3(2);
+                clickPrice1(1);
+                clickPrice2(1);
+              }}
+            >
+              인터뷰 컨설팅
+            </button>
+            {box1 && <div>{selectPrice3[box3]}</div>}
           </div>
-          <div class={styles.container_page4_box}>
-            <div className={styles.container_page4_title}>
-              <h3>체험을 통해 경험해보세요!</h3>
-            </div>
-            <div className={styles.container_page4_detail_price}> </div>
-            <div className={styles.container_page4_description1_1}>
-              <ul>
-                <li> 정성적 인터뷰 관련 전자책 증정</li>
-                <li> 정성적 인터뷰 관련 컨설팅 1회</li>
-              </ul>
-            </div>
-            <div className={styles.container_page4_description2}>
-              <h3>
-                매일 오전 11시 & 오후 5시마다
-                <br />
-                무료 인터뷰 매칭 후보 업데이트
-              </h3>
-            </div>
-          </div>
-          <div class={styles.container_page4_box}>
-            <div className={styles.container_page4_title}>
-              <h3>구독을 통해 경험해보세요!</h3>
-            </div>
-            <div className={styles.container_page4_detail_price}>50000/월</div>
-            <div className={styles.container_page4_description1}>
-              <ul>
-                <li> 정성적 인터뷰 자동 기록 가능</li>
-                <li> 인터뷰 분석 노트 3개월마다 제공</li>
-              </ul>
-            </div>
-            <div className={styles.container_page4_description2}>
-              <h3>
-                매일 오전 11시 & 오후 5시마다
-                <br />
-                무료 인터뷰 매칭 후보 업데이트
-              </h3>
-            </div>
-          </div>
-          <div class={styles.container_page4_box}>
-            <div className={styles.container_page4_title}>
-              <h3>특화된 인터뷰 컨설팅</h3>
-            </div>
-            <div className={styles.container_page4_detail_price}>별도문의</div>
-            <div className={styles.container_page4_description1}>
-              <ul>
-                <li> 정성적 인터뷰</li>
-                <br />
-                <li> 동행 컨설팅</li>
-                <br />
-                <li> 제공 가능</li>
-              </ul>
-            </div>
-            <div className={styles.container_page4_description2_3}>
-              1년 장기 계약시 5% 할인
-            </div>
-          </div>
+          <button
+            class={styles.container_page4_box}
+            onClick={() => {
+              clickBox1(2);
+              clickBox2(1);
+              clickBox3(1);
+            }}
+          >
+            {box2 && <div>{selectBox1[box1]}</div>}
+          </button>
+          <button
+            class={styles.container_page4_box}
+            onClick={() => {
+              clickBox2(2);
+              clickBox1(1);
+              clickBox3(1);
+            }}
+          >
+            {box2 && <div>{selectBox2[box2]}</div>}
+          </button>
+          <button
+            class={styles.container_page4_box}
+            onClick={() => {
+              clickBox3(2);
+              clickBox1(1);
+              clickBox2(1);
+            }}
+          >
+            {box3 && <div>{selectBox3[box3]}</div>}
+          </button>
         </div>
       </div>
       <div className={styles.wrapper_page5}>
@@ -250,8 +316,51 @@ export default function Home() {
         <div className={styles.page6_title}>
           <h1>지금 IN U IN과 함께하기</h1>
         </div>
-        <div className={styles.page6_input_info}></div>
-        <div className={styles.page5_input_inquiry}></div>
+        <div className={styles.page6_input_group}>
+          <div className={styles.page6_input_info_group}>
+            <div className={styles.page6_input_title}>
+              <h1>회사명/이름</h1>
+            </div>
+            <div className={styles.page6_input_info}>
+              <input
+                type='text'
+                placeholder='인터뷰 희망자실 경우에 이름만 입력해주세요.'
+              />
+            </div>
+            <div className={styles.page6_input_title}>
+              <h1>이메일</h1>
+            </div>
+            <div className={styles.page6_input_info}>
+              <input type='text' placeholder='예) inuin@email.com' />
+            </div>
+            <div className={styles.page6_input_title}>
+              <h1>전화번호</h1>
+            </div>
+            <div className={styles.page6_input_info}>
+              <input type='text' placeholder='예) 010-1234-5678' />
+            </div>
+          </div>
+          <div className={styles.page6_input_inquiry_group}>
+            <div className={styles.page6_input_checkbox_group}>
+              <div className={styles.page6_input_checkbox1}>
+                <input id='checkbox1' type='checkbox' />
+                <label>서비스 문의</label>
+              </div>
+              <div className={styles.page6_input_checkbox2}>
+                <input id='checkbox2' type='checkbox' />
+                <label>컨설팅 신청</label>
+              </div>
+            </div>
+            <div className={styles.page6_inqury_bar}></div>
+            <div className={styles.page6_inqury_title}>문의내용</div>
+            <div className={styles.page6_inqury_input}>
+              <input type='text' />
+            </div>
+          </div>
+        </div>
+        <div className={styles.page6_button}>
+          <button type='button'>문의하기</button>
+        </div>
       </div>
     </div>
   );

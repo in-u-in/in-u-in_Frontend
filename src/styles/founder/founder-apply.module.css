@@ -33,6 +33,7 @@
   width: 100%;
   align-items: flex-start;
   justify-content: space-between;
+  gap: 100px;
 }
 
 .CardListContainer {
@@ -43,50 +44,46 @@
 
 .ProfileContainer {
   display: flex;
-  gap: 25px;
-  justify-content: space-between;
+  gap: 28px;
   padding: 33px;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  width: 800px;
-  height: 520px;
+  width: 599px;
+  height: 265px;
   flex-shrink: 0;
 }
 
 .ProfileImage {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
 }
 
 .ProfileDescriptions {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 .ProfileName {
   color: var(--front-mvp-vercel-app-black-88, rgba(0, 0, 0, 0.88));
   font-family: Roboto;
-  font-size: 25px;
+  font-size: 14.224px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24.384px; /* 150% */
 }
 .ProfileJobName {
   color: var(--front-mvp-vercel-app-black-88, rgba(0, 0, 0, 0.88));
   font-family: Roboto;
-  font-size: 20px;
+  font-size: 14.224px;
   font-style: normal;
   font-weight: 400;
-  line-height: 22.352px; /* 157.143% */
 }
 
 .ProfileText {
   color: var(--front-mvp-vercel-app-black-88, rgba(0, 0, 0, 0.88));
   font-family: Roboto;
-  font-size: 20px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 22.352px; /* 157.143% */
 }
 
 .ProfileChip {
@@ -100,9 +97,8 @@
 .ProfileChipContainer {
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .FormCardContainer {
