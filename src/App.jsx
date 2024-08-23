@@ -14,6 +14,8 @@ import IntervieweeApplyPage from './pages/interviewee/interviewee-apply';
 import IntervieweeApplicationpage from './pages/interviewee/interviewee-application';
 
 const App = () => {
+  const id = 1;
+
   return (
     <BrowserRouter>
       <Routes>
@@ -22,7 +24,7 @@ const App = () => {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/founderApply' element={<FounderApplyPage />} />
         <Route path='/interviewee' element={<IntervieweeHomePage />} />
-        <Route path='/founder' element={<FounderHomePage />} />
+        <Route path='/founder' element={<FounderHomePage id={id} />} />
         <Route path='/createInterview' element={<CreateInterviewPage />} />
         <Route path='/calendar' element={<CalendarPage />} />
         <Route path='/manageInterview' element={<ManageInterviewPage />} />

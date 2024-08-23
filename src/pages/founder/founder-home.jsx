@@ -1,46 +1,35 @@
 import React from 'react';
 import IntervieweeBox from '../../components/interviewee/interviewee-home/IntervieweeBox';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styles from '../../styles/founder/founder-home.module.css';
+import axios from 'axios';
 
-export default function FounderHomePage() {
-  /* api로 정보 가져오기
+export default function FounderHomePage({ id }) {
+  const [data, setData] = useState();
+  const [wholeInterviewee, setWholeInterviewee] = useState([]);
 
-    const [recommandInerviewee, setRecommandInterviewee] = useState([]);
-    const [wholeInterviewee, setWholeInterviewee] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:5173/data/interview.json'
+        );
+        console.log(response.data);
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
-    const getRecommandIntervieweeData = async () => {
-        try {
-          const url = ``;
-          const response = await fetch(url);
-          if (response.ok) {
-            const data = await response.json();
-            setRecommandInterviewee(data.results);
-          }
-        } catch (error) {
-        
-        }
+  useEffect(() => {
+    const interview = data?.interview?.find((item) => item.id === id);
+    if (interview) {
+      setWholeInterviewee(interview.interviewee);
     }
-
-    const getWholeIntervieweeData = async () => {
-        try {
-          const url = ``;
-          const response = await fetch(url);
-          if (response.ok) {
-            const data = await response.json();
-            setWholeInterviewee(data.results);
-          }
-        } catch (error) {
-        
-        }
-    }
-
-    useEffect(() => {
-        getRecommandIntervieweeData();
-        getWholeIntervieweeData();
-      },[])
-
-*/
+  }, [data, id]);
 
   return (
     <div className={styles.FounderHomeContainer}>
@@ -50,37 +39,27 @@ export default function FounderHomePage() {
       <div className={styles.FounderBox}>
         <div className={styles.SubTitle}>오늘의 추천 인터뷰이</div>
         <div className={styles.IntervieweeContainer}>
-          {/*recommandInerviewee.map((item) => (
-                            <IntervieweeBox
-                                key={item.id}
-                            />
-                        ))*/}
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
+          {wholeInterviewee?.map((item, i) => (
+            <IntervieweeBox
+              key={i}
+              name={item.name}
+              job={item.job}
+              subject={item.subject}
+            />
+          ))}
         </div>
       </div>
       <div className={styles.FounderBox}>
         <h2 className={styles.SubTitle}>더 많은 인터뷰이를 확인해보세요.</h2>
         <div className={styles.IntervieweeContainer}>
-          {/*wholeInterviewee.map((item) => (
-                            <IntervieweeBox
-                                key={item.id}
-                            />
-                        ))*/}
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
-          <IntervieweeBox />
+          {wholeInterviewee?.map((item, i) => (
+            <IntervieweeBox
+              key={i}
+              name={item.name}
+              job={item.job}
+              subject={item.subject}
+            />
+          ))}
         </div>
       </div>
     </div>

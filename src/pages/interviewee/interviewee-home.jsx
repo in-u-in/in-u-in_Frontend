@@ -1,46 +1,25 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FounderBox from '../../components/founder/founder-home/FounderBox';
 import styles from '../../styles/interviewee/interviewee-home.module.css';
+import axios from 'axios';
 
 export default function IntervieweeHomePage() {
-  /* api로 정보 가져오기 
+  const [wholeFounder, setWholeFounder] = useState([]);
 
-    const [recommandFounder, setRecommandFounder] = useState([]);
-    const [wholeFounder, setWholeFounder] = useState([]);
-
-    const getRecommandFounderData = async () => {
-        try {
-          const url = ``;
-          const response = await fetch(url);
-          if (response.ok) {
-            const data = await response.json();
-            setRecommandFounder(data.results);
-          }
-        } catch (error) {
-        
-        }
-    }
-
-    const getWholeFounderData = async () => {
-        try {
-          const url = ``;
-          const response = await fetch(url);
-          if (response.ok) {
-            const data = await response.json();
-            setWholeFounder(data.results);
-          }
-        } catch (error) {
-        
-        }
-    }
-
-    useEffect(() => {
-        getRecommandFounderData();
-        getWholeFounderData();
-      },[])
-
-*/
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:5173/data/interview.json'
+        );
+        console.log(response.data);
+        setWholeFounder(response.data.interview);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className={styles.FounderHomeContainer}>
@@ -51,33 +30,27 @@ export default function IntervieweeHomePage() {
       <div className={styles.IntervieweeBox}>
         <div className={styles.SubTitle}>오늘의 추천 인터뷰</div>
         <div className={styles.FounderContainer}>
-          {/*recommandFounder.map((item) => (
-                        <IntervieweeBox
-                            key={item.id}
-                        />
-                    ))*/}
-          <FounderBox />
-          <FounderBox />
-          <FounderBox />
-          <FounderBox />
-          <FounderBox />
-          <FounderBox />
+          {wholeFounder?.map((item, i) => (
+            <FounderBox
+              key={i}
+              founderId={item.id}
+              time={item.time}
+              title={item.title}
+            />
+          ))}
         </div>
       </div>
       <div className={styles.IntervieweeBox}>
         <h2 className={styles.SubTitle}>더 많은 인터뷰들을 확인해보세요.</h2>
         <div className={styles.FounderContainer}>
-          {/*wholeFounder.map((item) => (
-                        <IntervieweeBox
-                            key={item.id}
-                        />
-                    ))*/}
-          <FounderBox />
-          <FounderBox />
-          <FounderBox />
-          <FounderBox />
-          <FounderBox />
-          <FounderBox />
+          {wholeFounder?.map((item, i) => (
+            <FounderBox
+              key={i}
+              founderId={item.id}
+              time={item.time}
+              title={item.title}
+            />
+          ))}
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import styles from '../../../styles/founder/FounderBox.module.css';
 import tourism from '../../../assets/icons/tourism.svg';
 import eyeIcon from '../../../assets/icons/eyeIcon.svg';
 
-export default function FounderBox({ founderId }) {
+export default function FounderBox({ founderId, time, title }) {
   const [viewCount, setViewCount] = useState(0);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function FounderBox({ founderId }) {
       <div className={styles.FounderImg}>
         <img src={tourism} alt='Tourism' />
         <div className={styles.TimeWrap}>
-          <div className={styles.DefaultTime}>40분</div>
+          <div className={styles.DefaultTime}>{time}분</div>
           <div className={styles.SmallBox} />
         </div>
       </div>
@@ -40,9 +40,7 @@ export default function FounderBox({ founderId }) {
             </div>
           </div>
         </div>
-        <div className={styles.FounderInfo}>
-          베트남 여행 경험자의 이야기를 들려주세요
-        </div>
+        <div className={styles.FounderInfo}>{title}</div>
       </div>
     </div>
   );
