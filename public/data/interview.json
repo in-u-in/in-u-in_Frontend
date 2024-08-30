@@ -265,41 +265,7 @@
       "cost": 12000,
       "way": "대면",
       "compensate": "플랫폼 내 포인트 추가 보상",
-      "interviewee": [
-        {
-          "profile": "https://s3-alpha-sig.figma.com/img/0bcb/63b7/13d43312fbb03557f4ccbed347f4090e?Expires=1724630400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=U0smsnvATSdM~WTWNdO-F~52k-QXVrmOBFgjr6kHpisYK8yE0~C5i68RKkf5W7YIeXe2PyGeirtRuwAKwsTOjp5ECuQj0BXgoT33bAr-bzbIkKX6v0-XgqZkkRQCrszOBToaNaFeTe5QAkekYkuQEhCHsyxkV-NIoBFpqZoSuJlFMs2UxikTh9ZvTK3BFEn6XAhoG3r5eBbHlG1e4wr03lhOF7oPp0J86Bf511va5O30OvlZDlQzn67Arj2Ao7w2bn-kFrnkclOc9PlYLe7RA5q0ZpYxRdUKvS0X1Re85G~HyIldGnH9fdA-672kwqkIMLr0cEUKnN78SJLz4PnNLA__",
-          "name": "혜성",
-          "subject": "당신의 대한민국 여행 경험을 공유해 주세요",
-          "job": "백엔드 개발자",
-          "ways": ["화상통화", "전화", "30분"],
-          "timeRange": "3시간 미만",
-          "minCost": 2000,
-          "maxCost": 3000,
-          "state": "승인대기중"
-        },
-        {
-          "profile": "https://s3-alpha-sig.figma.com/img/0bcb/63b7/13d43312fbb03557f4ccbed347f4090e?Expires=1724630400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=U0smsnvATSdM~WTWNdO-F~52k-QXVrmOBFgjr6kHpisYK8yE0~C5i68RKkf5W7YIeXe2PyGeirtRuwAKwsTOjp5ECuQj0BXgoT33bAr-bzbIkKX6v0-XgqZkkRQCrszOBToaNaFeTe5QAkekYkuQEhCHsyxkV-NIoBFpqZoSuJlFMs2UxikTh9ZvTK3BFEn6XAhoG3r5eBbHlG1e4wr03lhOF7oPp0J86Bf511va5O30OvlZDlQzn67Arj2Ao7w2bn-kFrnkclOc9PlYLe7RA5q0ZpYxRdUKvS0X1Re85G~HyIldGnH9fdA-672kwqkIMLr0cEUKnN78SJLz4PnNLA__",
-          "name": "윤성",
-          "subject": "당신의 대한민국 여행 경험을 공유해 주세요",
-          "job": "백엔드 개발자",
-          "ways": ["화상통화", "전화", "30분"],
-          "timeRange": "3시간 미만",
-          "minCost": 1000,
-          "maxCost": 4000,
-          "state": "승인대기중"
-        },
-        {
-          "profile": "https://s3-alpha-sig.figma.com/img/0bcb/63b7/13d43312fbb03557f4ccbed347f4090e?Expires=1724630400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=U0smsnvATSdM~WTWNdO-F~52k-QXVrmOBFgjr6kHpisYK8yE0~C5i68RKkf5W7YIeXe2PyGeirtRuwAKwsTOjp5ECuQj0BXgoT33bAr-bzbIkKX6v0-XgqZkkRQCrszOBToaNaFeTe5QAkekYkuQEhCHsyxkV-NIoBFpqZoSuJlFMs2UxikTh9ZvTK3BFEn6XAhoG3r5eBbHlG1e4wr03lhOF7oPp0J86Bf511va5O30OvlZDlQzn67Arj2Ao7w2bn-kFrnkclOc9PlYLe7RA5q0ZpYxRdUKvS0X1Re85G~HyIldGnH9fdA-672kwqkIMLr0cEUKnN78SJLz4PnNLA__",
-          "name": "혜성",
-          "subject": "당신의 대한민국 여행 경험을 공유해 주세요",
-          "job": "백엔드 개발자",
-          "ways": ["화상통화", "전화", "30분"],
-          "timeRange": "3시간 미만",
-          "minCost": 1000,
-          "maxCost": 2500,
-          "state": "승인대기중"
-        }
-      ]
+      "interviewee": null
     }
   ]
 }
