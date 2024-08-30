@@ -3,13 +3,26 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 93px 0 115px 0;
+  align-items: center;
+  margin: 70px 0 115px 0;
   gap: 65px;
+}
+
+.swiper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 480px;
+  overflow: hidden;
+}
+
+.swiperContainer {
+  height: 100%;
 }
 
 .intervieweeBox {
   width: 870px;
-  height: 344px;
+  height: 408px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -34,7 +47,7 @@
 /*IntervieweeBox*/
 .intervieweeBoxContainer {
   width: 100%;
-  height: 86px;
+  height: 102px;
   display: flex;
   align-items: center;
   justify-content: center;
