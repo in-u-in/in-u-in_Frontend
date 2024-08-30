@@ -31,6 +31,19 @@
   height: 100%;
 }
 
+.interviewBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.prevDirection,
+.nextDirection {
+  display: flex;
+  justify-content: center;
+  width: 468.319px;
+  cursor: pointer;
+}
+
 .intervieweeBox {
   width: 870px;
   height: 408px;
