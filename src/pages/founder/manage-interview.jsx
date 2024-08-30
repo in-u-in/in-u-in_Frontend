@@ -27,7 +27,7 @@ export default function ManageInterviewPage() {
         {data?.interview?.map((item, idx) => (
           <InterviewBox
             key={idx}
-            type={'small'}
+            type={'mid'}
             title={item.title}
             applicant={item.applicant}
             wating={item.wating}

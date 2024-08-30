@@ -13,14 +13,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 44px;
+  margin-bottom: 60px;
 }
 
 .box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 148px;
-  row-gap: 54px;
+  column-gap: 80px;
+  row-gap: 50px;
 }
 
 /*InterviewBox*/
@@ -51,7 +51,6 @@
   align-items: center;
   text-decoration: none;
   color: inherit;
-  pointer-events: none;
 }
 
 .smallInterviewBoxContainer {
