@@ -5,6 +5,7 @@ import useModal from '../../hooks/useModal';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { MoonLoader } from 'react-spinners';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function ManageIntervieweePage() {
@@ -71,6 +72,9 @@ export default function ManageIntervieweePage() {
           </div>
         ) : (
           <div className={styles.box}>
+            <Link to={'/manage'} className={styles.button}>
+              인터뷰와 지원자 한눈에 보기
+            </Link>
             <div className={styles.headerBox}>
               {headerTexts.map((text, idx) => (
                 <div
