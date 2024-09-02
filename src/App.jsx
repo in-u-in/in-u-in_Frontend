@@ -12,10 +12,12 @@ import FounderApplyPage from './pages/founder/founder-apply';
 import ManagePage from './pages/founder/manage';
 import IntervieweeApplyPage from './pages/interviewee/interviewee-apply';
 import IntervieweeApplicationpage from './pages/interviewee/interviewee-application';
+import Header from './components/Header';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />

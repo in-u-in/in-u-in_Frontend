@@ -62,7 +62,7 @@ export default function ManageIntervieweePage() {
     <>
       <div className={styles.container}>
         <div className={styles.title}>지원자 관리</div>
-        {intervieweeList == null ? (
+        {intervieweeList.length == 0 ? (
           <div className={styles.waitingContainer}>
             인터뷰 지원자가 없습니다.
           </div>
