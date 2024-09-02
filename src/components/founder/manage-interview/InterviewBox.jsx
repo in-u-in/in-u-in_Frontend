@@ -18,50 +18,47 @@ export default function InterviewBox({
   return (
     <Link
       to={`/manageInterview/manageInterviewee/${id}`}
-      className={`${type == 'big' ? styles.bigInterviewBoxContainer : type == 'mid' ? styles.interviewBoxContainer : styles.smallInterviewBoxContainer}`}
+      className={`${type == 'big' ? styles.bigInterviewBoxContainer : styles.interviewBoxContainer}`}
     >
       <div
-        className={`${type == 'big' ? styles.bigTopBox : type == 'mid' ? styles.topBox : styles.smallTopBox}`}
-      />
-      <div
-        className={`${type == 'big' ? styles.bigInterviewBoxTitle : type == 'mid' ? styles.interviewBoxTitle : styles.smallInterviewBoxTitle}`}
+        className={`${type == 'big' ? styles.bigInterviewBoxTitle : styles.interviewBoxTitle}`}
       >
         {title}
       </div>
       <div
-        className={`${styles.first_details} ${type == 'big' ? styles.bigDetails : type == 'mid' ? styles.details : styles.smallDetails}`}
+        className={`${styles.first_details} ${type == 'big' ? styles.bigDetails : styles.details}`}
       >
         <div
-          className={`${type == 'big' ? styles.big_first_detailBox : type == 'mid' ? styles.first_detailBox : styles.small_first_detailBox}`}
+          className={`${type == 'big' ? styles.big_first_detailBox : styles.first_detailBox}`}
         >{`현재까지 ${applicant}명 지원`}</div>
 
         <div
-          className={`${type == 'big' ? styles.big_first_detailBox : type == 'mid' ? styles.first_detailBox : styles.small_first_detailBox}`}
+          className={`${type == 'big' ? styles.big_first_detailBox : styles.first_detailBox}`}
         >{`${wating}명 승인 대기`}</div>
         <div
-          className={`${type == 'big' ? styles.big_first_detailBox : type == 'mid' ? styles.first_detailBox : styles.small_first_detailBox}`}
+          className={`${type == 'big' ? styles.big_first_detailBox : styles.first_detailBox}`}
         >
           {moment(deadline).format('YYYY.MM.DD~')}
         </div>
       </div>
       <img
-        className={`${type == 'big' ? styles.bigImage : type == 'mid' ? styles.image : styles.smallImage}`}
+        className={`${type == 'big' ? styles.bigImage : styles.image}`}
         src={image}
       />
       <div
-        className={`${styles.second_details} ${type == 'big' ? styles.bigDetails : type == 'mid' ? styles.details : styles.smallDetails}`}
+        className={`${type == 'big' ? styles.big_second_details : styles.second_details} ${type == 'big' ? styles.bigDetails : styles.details}`}
       >
         <div
-          className={`${type == 'big' ? styles.big_second_detailBox : type == 'mid' ? styles.second_detailBox : styles.small_second_detailBox}`}
+          className={`${type == 'big' ? styles.big_second_detailBox : styles.second_detailBox}`}
         >{`${time}분`}</div>
         <div
-          className={`${type == 'big' ? styles.big_second_detailBox : type == 'mid' ? styles.second_detailBox : styles.small_second_detailBox}`}
+          className={`${type == 'big' ? styles.big_second_detailBox : styles.second_detailBox}`}
         >{`${cost}원`}</div>
         <div
-          className={`${type == 'big' ? styles.big_second_detailBox : type == 'mid' ? styles.second_detailBox : styles.small_second_detailBox}`}
+          className={`${type == 'big' ? styles.big_second_detailBox : styles.second_detailBox}`}
         >{`${way} 선호`}</div>
         <div
-          className={`${type == 'big' ? styles.big_second_detailBox : type == 'mid' ? styles.second_detailBox : styles.small_second_detailBox}`}
+          className={`${type == 'big' ? styles.big_second_detailBox : styles.second_detailBox}`}
         >
           {compensate}
         </div>

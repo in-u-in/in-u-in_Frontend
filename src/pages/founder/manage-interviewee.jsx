@@ -4,12 +4,13 @@ import Modal from '../../components/founder/manage-interviewee/Modal';
 import useModal from '../../hooks/useModal';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { MoonLoader } from 'react-spinners';
 import axios from 'axios';
 
 export default function ManageIntervieweePage() {
   const { isOpen, closeModal, openModal } = useModal();
   const [data, setData] = useState();
-  const [intervieweeList, setIntervieweeList] = useState([]);
+  const [intervieweeList, setIntervieweeList] = useState('loading');
   const { id } = useParams();
 
   useEffect(() => {
@@ -60,35 +61,45 @@ export default function ManageIntervieweePage() {
     <>
       <div className={styles.container}>
         <div className={styles.title}>지원자 관리</div>
-        <div className={styles.box}>
-          <div className={styles.headerBox}>
-            {headerTexts.map((text, idx) => (
-              <div
-                className={`${styles.headerText} ${idx != 7 && styles.border}`}
-                style={{ width: headerWidths[idx] }}
+        {intervieweeList == null ? (
+          <div className={styles.waitingContainer}>
+            인터뷰 지원자가 없습니다.
+          </div>
+        ) : intervieweeList == 'loading' ? (
+          <div className={styles.waitingContainer}>
+            <MoonLoader size={40} color='#2a4ecd' speedMultiplier={1} />
+          </div>
+        ) : (
+          <div className={styles.box}>
+            <div className={styles.headerBox}>
+              {headerTexts.map((text, idx) => (
+                <div
+                  className={`${styles.headerText} ${idx != 7 && styles.border}`}
+                  style={{ width: headerWidths[idx] }}
+                  key={idx}
+                >
+                  {text}
+                </div>
+              ))}
+            </div>
+            {/*api 연결 시, 변경 */}
+            {intervieweeList?.map((item, idx) => (
+              <IntervieweeBox
                 key={idx}
-              >
-                {text}
-              </div>
+                profile={item.profile}
+                name={item.name}
+                subject={item.subject}
+                job={item.job}
+                ways={item.ways}
+                timeRange={item.timeRange}
+                minCost={item.minCost}
+                maxCost={item.maxCost}
+                state={item.state}
+                openModal={openModal}
+              />
             ))}
           </div>
-          {/*api 연결 시, 변경 */}
-          {intervieweeList?.map((item, idx) => (
-            <IntervieweeBox
-              key={idx}
-              profile={item.profile}
-              name={item.name}
-              subject={item.subject}
-              job={item.job}
-              ways={item.ways}
-              timeRange={item.timeRange}
-              minCost={item.minCost}
-              maxCost={item.maxCost}
-              state={item.state}
-              openModal={openModal}
-            />
-          ))}
-        </div>
+        )}
       </div>
       {isOpen && <Modal closeModal={closeModal} />}
     </>

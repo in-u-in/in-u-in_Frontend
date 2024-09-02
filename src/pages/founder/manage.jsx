@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SyncLoader } from 'react-spinners';
+import { MoonLoader } from 'react-spinners';
 import { RiArrowUpWideLine } from 'react-icons/ri';
 import { RiArrowDownWideLine } from 'react-icons/ri';
 import 'swiper/css';
@@ -77,7 +77,9 @@ export default function ManagePage() {
       ) : (
         <>
           {data.interview == 'loading' ? (
-            <SyncLoader />
+            <div className={styles.nullContainer}>
+              <MoonLoader size={40} color='#2a4ecd' speedMultiplier={1} />
+            </div>
           ) : (
             <div className={styles.container}>
               <div className={styles.buttonBox}>
@@ -101,7 +103,7 @@ export default function ManagePage() {
                   </div>
                   <Swiper
                     modules={[Mousewheel]}
-                    spaceBetween={0} //아이템 사이 간격
+                    spaceBetween={10} //아이템 사이 간격
                     slidesPerView={1} //보여질 갯수
                     mousewheel={{
                       enabled: true,
@@ -114,7 +116,7 @@ export default function ManagePage() {
                     }}
                     direction='vertical' //슬라이딩 방향
                     slidesPerGroup={1} //한번에 슬라이딩 될 갯수
-                    slidesOffsetBefore={18.08549} //슬라이드 시작 부분 여백
+                    slidesOffsetBefore={0} //슬라이드 시작 부분 여백
                     onSlideChange={(swiper) => {
                       setActiveIndex(swiper.realIndex);
                       setSwiperDirection(swiper);
