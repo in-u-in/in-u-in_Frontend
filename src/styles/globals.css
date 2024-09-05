@@ -229,3 +229,19 @@ body {
 .react-datepicker__navigation--next {
   border-left-color: #333333;
 }
+.carousel * {
+  display: flex;
+}
+.carousel .slider-wrapper {
+  width: 1400px;
+  height: 650px;
+  display: flex;
+  overflow: visible; /* 다음 슬라이드가 보이도록 설정 */
+}
+.carousel .slide {
+  padding: 0 15px; /* 양쪽에 15px 간격을 추가 */
+}
+.carousel .slide:not(.selected) {
+  opacity: 0.5; /* 어둡게 하기 위해 투명도 설정 */
+  filter: brightness(0.5); /* 추가적인 어둡게 효과 */
+}

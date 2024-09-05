@@ -8,7 +8,7 @@ import { ko } from 'date-fns/locale';
 export const Chip = ({ content }) => {
   return (
     <div className={styles.ProfileChip}>
-      <span className={styles.ProfileText}>{content}</span>
+      <span className={styles.ProfilText}>{content}</span>
     </div>
   );
 };

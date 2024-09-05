@@ -6,11 +6,18 @@
   display: flex;
   flex-direction: column;
 }
+.Row {
+  display: flex;
+  flex-direction: row;
+}
 .ApplycationRoot {
   align-items: flex-start;
 }
 .RootContainer {
   display: flex;
+  justify-content: center; /* 가로축 중앙 정렬 */
+  align-items: center; /* 세로축 중앙 정렬 */
+  min-height: 100vh; /* 화면 전체 높이를 차지하도록 설정 */
   width: 100%;
   flex-direction: column;
   padding: 0px 384px 44px 252px;
@@ -29,10 +36,9 @@
   height: 613px;
   flex-shrink: 0;
   gap: 0px;
-  border-radius: 8px 0px 0px 0px;
-  opacity: 0px;
+  border-radius: 8px;
   background: #f5f6f9;
-  box-shadow: 0px 4px 4px 0px #00000040;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: Flex;
   padding: 24px 83px 130px 86px;
 }
@@ -49,6 +55,8 @@
   line-height: 46px;
 }
 .TitleContainer {
+  display: flex;
+  flex-direction: column;
   padding-top: 26px;
   padding-bottom: 19px;
 }
@@ -60,12 +68,13 @@
 }
 .ChipContainer {
   display: flex;
+  gap: 9px;
   justify-content: space-between;
 }
 .ChipImageContainer {
   display: flex;
   width: 370px;
-  height: 300px;
+  height: 350px;
   flex-direction: column;
 }
 .Maintitle {
@@ -89,7 +98,7 @@
 .MainContentContainer {
   display: flex;
   flex-direction: column;
-  padding: 12px 139px 32px 50px;
+  padding: 12px 0px 32px 50px;
   gap: 15px;
 }
 .ApplyButton {
